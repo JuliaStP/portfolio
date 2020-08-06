@@ -1,0 +1,191 @@
+extends ./main.layout.pug
+
+block content
+  .welcome
+    section.hero
+      .container.hero__container
+        header.header
+          a.logo(href='#') ВА
+          nav.header__menu.menu
+            ul.menu__list
+              li.menu__item
+                a.menu__link(href='#') Обо мне
+              li.menu__item
+                a.menu__link(href='#') Навыки
+              li.menu__item
+                a.menu__link(href='#') Работы
+              li.menu__item
+                a.menu__link(href='#') Отзывы
+          .header__socials.socials 
+            ul.socials__list
+              li.socials__item.socials__item--in
+                a.socials__link(href='#')
+                +icon('insta', 'socials__img')
+              li.socials__item.socials__item--vk
+                a.socials__link(href='#')
+                +icon('vk', 'socials__img')
+              li.socials__item.socials__item--git
+                a.socials__link(href='#')
+                +icon('github', 'socials__img')
+              li.socials__item.socials__item--mail
+                a.socials__link(href='#')
+                +icon('envelope', 'socials__img')
+        
+        .hero__title
+          .hero__site-name Личный сайт #[br] веб разработчика
+          .hero__name Владимир Астаханов
+       
+        .hero__scroll
+          button.hero__scroll-btn Скролл
+          +icon('scroll', 'hero__scroll-img') 
+
+    section.about
+      .container.about__container
+        .about__wrapper
+          .about__info
+            .about__img-wrapper
+              +image('content/user.jpg', 'about__img')
+            .about__column
+              .about__row
+                span.about__label Проживаю:
+                span.about__value Новосибирск
+              .about__row
+                span.about__label Возраст:
+                span.about__value 27 лет
+              .about__row
+                span.about__label Родился:
+                span.about__value 1 января 1991
+          .about__content
+            .about__hi
+            span.about__hi-text Привет, меня зовут
+            h2.about__name Владимир Астаханов
+            .about__me
+              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            .about__text
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+  section.skills
+    .container.skills__container
+      .skills__intro
+        h3.skills__title Чем я могу быть полезен вам
+        .skills__text
+          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+      .skills__tech
+        - 
+          var skillsCategories = [
+            ['Front-End', ['HTML', 'CSS', 'Javascript', 'Vue']],
+            ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+          ];
+
+        ul.skill
+          each category in skillsCategories
+            li.skill__item
+              .skill-row
+                .skill-row__title #{category[0]}
+                  ul.skill-row__list
+                    each skill in category[1]
+                      li.skill-row__item
+                        .skill__img 
+                          svg(viewBox='0 0 100 100').skill__circle-shape
+                            circle(cx='50' cy='50' r='40').skill__circle.skill__circle--under
+                            circle(cx='50' cy='50' r='40' stroke='url(#gradient)' transform='rotate(180 50 50)').skill__circle.skill__circle--above
+                            linearGradient(id='gradient' x1='0%' y1='0%' x2='100%' y2='0%')
+                              stop(offset='0%' stop-color='#d0731b')
+                              stop(offset='100%' stop-color='#dc9322')
+                          .skill__title #{skill}
+      //-   .skills__tech-row
+      //-     h4.skills__tech-title Front-End 
+      //-     ul.skills__tech-menu
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text HTML5
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text CSS3
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text Javascript
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text Jquery и Vue.js
+      //-   .skills__tech-row
+      //-     h4.skills__tech-title Workflow
+      //-     ul.skills__tech-menu
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text GIT
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text Terminal
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text Gulp
+      //-       li.skills__tech-item
+      //-         span.skills__tech-text Webpack
+  section.projects
+    .container.projects__container
+      h2.projects__title Мои работы
+      .projects__wrapper
+        .projects__slider.slider
+          ul.slider__preview
+            li.slider__preview-item
+              +image('content/slider-1.jpg', 'slider__preview-img')
+              ul.slider__all
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-1.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-2.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-3.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-4.jpg', 'slider__all-img')
+              .slider__btns
+                .square-btns
+                  button(type='button').square-btns__item.square-btns__item--next  
+                  button(type='button').square-btns__item.square-btns__item--prev       
+        .projects__content
+          ul.tags
+            li.tags__item HTML
+            li.tags__item CSS 
+            li.tags__item Javascript       
+          h3.projects__school Сайт школы образования
+          .projects__text
+            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+          a.projects__link(href="loftschool.com")
+            +icon('link', 'projects__link-img') 
+            span.projects__link-text Посмотреть сайт
+  section.reviews
+    .container  
+      .reviews__slider
+        .reviews__header
+          .reviews__title Что обо мне говорят
+          .reviews__slider-btns
+            button(type='button').round-btn.round-btn--right
+            button(type='button').round-btn.round-btn--left
+        ul.reviews__slider-content
+          li.reviews__slider-item
+            .quote
+              .quote__text
+                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              .quote__user 
+                .user-display__avatar
+                  .user-display__avatar-wrapper
+                    +image('content/vladimir.png', 'user-display__pic')
+                .user-display__data
+                  .user-display__name Дмитрий Ковальчук
+                  .user-display__occ Основатель Loftschool
+          li.reviews__slider-item
+            .quote
+              .quote__text
+                p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+              .quote__user 
+                .user-display__avatar
+                  .user-display__avatar-wrapper
+                    +image('content/dmitriy.png', 'user-display__pic')
+                .user-display__data
+                  .user-display__name Владимир Сабанцев
+                  .user-display__occ Преподаватель
+                
+                                     
+                                  
+                  
+                                     
+      //-   +image('content/user.jpg', 'user-pic')
+      //-   +icon('link', 'link-class')
+      //-   .icon-bg

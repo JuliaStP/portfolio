@@ -1,0 +1,43 @@
+.skill__img {
+  position:relative;
+  width: 138px;
+  height: 138px;
+}
+
+.skill-row__title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.skill-row__list {
+  display: flex;
+  margin-top: 50px;
+}
+
+.skill__circle {
+  fill: transparent;
+
+  &--under {
+    stroke: #E9E9E9;
+    opacity: 0.1;
+    stroke-width: 3px;
+  }
+
+  &--above {
+    stroke-width: 9px;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 120;
+  }
+}
+
+.skill__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 0.5;
+  padding: 14px;
+}
