@@ -56,8 +56,7 @@ block content
                 span.about__label Родился:
                 span.about__value 1 января 1991
           .about__content
-            .about__hi
-            span.about__hi-text Привет, меня зовут
+            .about__hi Привет, меня зовут
             h2.about__name Владимир Астаханов
             .about__me
               p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
@@ -72,7 +71,7 @@ block content
       .skills__tech
         - 
           var skillsCategories = [
-            ['Front-End', ['HTML', 'CSS', 'Javascript', 'Vue']],
+            ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js']],
             ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
           ];
 
@@ -119,9 +118,12 @@ block content
       h2.projects__title Мои работы
       .projects__wrapper
         .projects__slider.slider
-          ul.slider__preview
+          ul.slider__preview(data-slide="1")
             li.slider__preview-item
               +image('content/slider-1.jpg', 'slider__preview-img')
+              .slider__btns
+                button(type='button').square-btns__item.square-btns__item--next  
+                button(type='button').square-btns__item.square-btns__item--prev  
               ul.slider__all
                 li.slider__all-item
                   a.slider__all-link(href='#')
@@ -135,10 +137,7 @@ block content
                 li.slider__all-item
                   a.slider__all-link(href='#')
                     +image('content/slider-4.jpg', 'slider__all-img')
-              .slider__btns
-                .square-btns
-                  button(type='button').square-btns__item.square-btns__item--next  
-                  button(type='button').square-btns__item.square-btns__item--prev       
+                 
         .projects__content
           ul.tags
             li.tags__item HTML
@@ -156,31 +155,81 @@ block content
         .reviews__header
           .reviews__title Что обо мне говорят
           .reviews__slider-btns
-            button(type='button').round-btn.round-btn--right
-            button(type='button').round-btn.round-btn--left
+            button(type='button').round-btn.round-btn--left 
+            button(type='button').round-btn.round-btn--right 
         ul.reviews__slider-content
           li.reviews__slider-item
+            .quote__img-wrapper
+              +icon('quote', 'quote__img') 
             .quote
+              
               .quote__text
                 p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
               .quote__user 
                 .user-display__avatar
                   .user-display__avatar-wrapper
-                    +image('content/vladimir.png', 'user-display__pic')
+                    +image('content/dmitriy.png', 'user-display__pic')
                 .user-display__data
                   .user-display__name Дмитрий Ковальчук
                   .user-display__occ Основатель Loftschool
           li.reviews__slider-item
-            .quote
+            .quote__img-wrapper
+              +icon('quote', 'quote__img') 
+            .quote 
               .quote__text
                 p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
               .quote__user 
                 .user-display__avatar
                   .user-display__avatar-wrapper
-                    +image('content/dmitriy.png', 'user-display__pic')
+                    +image('content/vladimir.png', 'user-display__pic')
                 .user-display__data
                   .user-display__name Владимир Сабанцев
                   .user-display__occ Преподаватель
+
+  footer.footer
+    .container.footer__container
+      .footer__copyright
+        .footer__copyright-col
+          .footer__copyright-year &copy;2020
+        .footer__info
+          .footer__name Владимир Астахов
+          .footer__site Личный сайт веб-разработчика
+      .footer__main
+        .menu.footer__menu
+            ul.menu__list
+              li.menu__item
+                a.menu__link(href='#') Обо мне
+              li.menu__item
+                a.menu__link(href='#') Навыки
+              li.menu__item
+                a.menu__link(href='#') Работы
+              li.menu__item
+                a.menu__link(href='#') Отзывы
+       
+        .footer__text
+          p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+        
+        .socials 
+            ul.socials__list
+              li.socials__item.socials__item--footer
+                a.socials__link(href='#')
+                  +icon('insta', 'socials__img')
+              li.socials__item.socials__item--footer
+                a.socials__link(href='#')
+                  +icon('vk', 'socials__img')
+              li.socials__item.socials__item--footer
+                a.socials__link(href='#')
+                  +icon('github', 'socials__img')
+              li.socials__item.socials__item--footer
+                a.socials__link(href='#')
+                  +icon('envelope', 'socials__img')
+      .footer__quote 
+        .footer__quote-text
+          p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+        span.footer__quote-author Martin Golding
+
+
+
                 
                                      
                                   

@@ -1,18 +1,26 @@
 .skill__img {
   position:relative;
-  width: 138px;
-  height: 138px;
+  width: 160px;
+  height: 160px;
 }
 
 .skill-row__title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 60px;
+  margin-bottom: 38px;
 }
 
 .skill-row__list {
   display: flex;
-  margin-top: 50px;
+  margin-top: 29px;
+}
+
+.skill-row__item {
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .skill__circle {
@@ -21,11 +29,11 @@
   &--under {
     stroke: #E9E9E9;
     opacity: 0.1;
-    stroke-width: 3px;
+    stroke-width: 2px;
   }
 
   &--above {
-    stroke-width: 9px;
+    stroke-width: 5px;
     stroke-dasharray: 250;
     stroke-dashoffset: 120;
   }
