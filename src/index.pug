@@ -41,5 +41,39 @@ block content
           a.projects__link(href="http://loftschool.com" target="_blank")
             +icon('link', 'projects__link-img') 
             span.projects__link-text Посмотреть сайт
-  include ./sections/reviews
+  section.reviews
+    .container  
+      .reviews__slider
+        .reviews__header
+          .reviews__title Что обо мне говорят
+          .reviews__slider-btns
+            button(type='button').round-btn.round-btn--left 
+            button(type='button').round-btn.round-btn--right 
+        ul.reviews__slider-content
+          li.reviews__slider-item
+            .quote
+              +icon('quote', 'quote__img') 
+            .quote__wrapper
+              .quote__text
+                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              .quote__user 
+                .user-display__avatar
+                  .user-display__avatar-wrapper
+                    +image('content/d.png', 'user-display__pic')
+                .user-display__data
+                  .user-display__name Ковальчук Дмитрий
+                  .user-display__occ Основатель Loftschool
+          li.reviews__slider-item
+            .quote
+              +icon('quote', 'quote__img') 
+            .quote__wrapper
+              .quote__text
+                p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт #[br]на слишком старых браузерах
+              .quote__user 
+                .user-display__avatar
+                  .user-display__avatar-wrapper 
+                    +image('content/v.png', 'user-display__pic')
+                .user-display__data
+                  .user-display__name Владимир Сабанцев
+                  .user-display__occ Преподаватель
   include ./sections/footer
