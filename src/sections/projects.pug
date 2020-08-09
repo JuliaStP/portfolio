@@ -1,0 +1,36 @@
+section.projects
+    .container.projects__container
+      h2.projects__title Мои работы
+      .projects__wrapper
+        .projects__slider.slider
+          ul.slider__preview(data-slide="1")
+            li.slider__preview-item
+              +image('content/slider-1.jpg', 'slider__preview-img')
+              .slider__btns
+                button(type='button').square-btns__item.square-btns__item--next  
+                button(type='button').square-btns__item.square-btns__item--prev  
+              ul.slider__all
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-1.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-2.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-3.jpg', 'slider__all-img')
+                li.slider__all-item
+                  a.slider__all-link(href='#')
+                    +image('content/slider-4.jpg', 'slider__all-img')
+                 
+        .projects__content
+          ul.tags
+            li.tags__item HTML
+            li.tags__item CSS 
+            li.tags__item Javascript       
+          h3.projects__school Сайт школы образования
+          .projects__text
+            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+          a.projects__link(href="http://loftschool.com" target="_blank")
+            +icon('link', 'projects__link-img') 
+            span.projects__link-text Посмотреть сайт

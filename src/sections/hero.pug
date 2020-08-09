@@ -1,0 +1,36 @@
+section.hero
+      .container.hero__container
+        header.header
+          a.logo(href='#') ВА
+          nav.header__menu.menu
+            ul.menu__list
+              li.menu__item
+                a.menu__link(href='#') Обо мне
+              li.menu__item
+                a.menu__link(href='#') Навыки
+              li.menu__item
+                a.menu__link(href='#') Работы
+              li.menu__item
+                a.menu__link(href='#') Отзывы
+          .header__socials.socials 
+            ul.socials__list
+              li.socials__item.socials__item--in
+                a.socials__link(href='#')
+                +icon('insta', 'socials__img')
+              li.socials__item.socials__item--vk
+                a.socials__link(href='#')
+                +icon('vk', 'socials__img')
+              li.socials__item.socials__item--git
+                a.socials__link(href='#')
+                +icon('github', 'socials__img')
+              li.socials__item.socials__item--mail
+                a.socials__link(href='#')
+                +icon('envelope', 'socials__img')
+        
+        .hero__title
+          .hero__site-name Личный сайт #[br] веб разработчика
+          .hero__name Владимир Астаханов
+       
+        .hero__scroll
+          button.hero__scroll-btn Скролл
+            +icon('scroll', 'hero__scroll-img') 
