@@ -37,7 +37,7 @@ block content
        
         .hero__scroll
           button.hero__scroll-btn Скролл
-          +icon('scroll', 'hero__scroll-img') 
+            +icon('scroll', 'hero__scroll-img') 
 
     section.about
       .container.about__container
@@ -91,28 +91,7 @@ block content
                               stop(offset='0%' stop-color='#d0731b')
                               stop(offset='100%' stop-color='#dc9322')
                           .skill__title #{skill}
-      //-   .skills__tech-row
-      //-     h4.skills__tech-title Front-End 
-      //-     ul.skills__tech-menu
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text HTML5
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text CSS3
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text Javascript
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text Jquery и Vue.js
-      //-   .skills__tech-row
-      //-     h4.skills__tech-title Workflow
-      //-     ul.skills__tech-menu
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text GIT
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text Terminal
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text Gulp
-      //-       li.skills__tech-item
-      //-         span.skills__tech-text Webpack
+
   section.projects
     .container.projects__container
       h2.projects__title Мои работы
@@ -159,10 +138,9 @@ block content
             button(type='button').round-btn.round-btn--right 
         ul.reviews__slider-content
           li.reviews__slider-item
-            .quote__img-wrapper
-              +icon('quote', 'quote__img') 
             .quote
-              
+              +icon('quote', 'quote__img') 
+            .quote__wrapper
               .quote__text
                 p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
               .quote__user 
@@ -170,17 +148,17 @@ block content
                   .user-display__avatar-wrapper
                     +image('content/dmitriy.png', 'user-display__pic')
                 .user-display__data
-                  .user-display__name Дмитрий Ковальчук
+                  .user-display__name Ковальчук Дмитрий
                   .user-display__occ Основатель Loftschool
           li.reviews__slider-item
-            .quote__img-wrapper
+            .quote
               +icon('quote', 'quote__img') 
-            .quote 
+            .quote__wrapper
               .quote__text
-                p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт #[br]на слишком старых браузерах
               .quote__user 
                 .user-display__avatar
-                  .user-display__avatar-wrapper
+                  .user-display__avatar-wrapper 
                     +image('content/vladimir.png', 'user-display__pic')
                 .user-display__data
                   .user-display__name Владимир Сабанцев
@@ -193,7 +171,7 @@ block content
           .footer__copyright-year &copy;2020
         .footer__info
           .footer__name Владимир Астахов
-          .footer__site Личный сайт веб-разработчика
+          .footer__site Личный сайт #[br] веб-разработчика
       .footer__main
         .menu.footer__menu
             ul.menu__list
@@ -223,18 +201,8 @@ block content
               li.socials__item.socials__item--footer
                 a.socials__link(href='#')
                   +icon('envelope', 'socials__img')
+            
       .footer__quote 
         .footer__quote-text
           p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
         span.footer__quote-author Martin Golding
-
-
-
-                
-                                     
-                                  
-                  
-                                     
-      //-   +image('content/user.jpg', 'user-pic')
-      //-   +icon('link', 'link-class')
-      //-   .icon-bg

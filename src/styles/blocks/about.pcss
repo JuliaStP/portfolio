@@ -1,3 +1,6 @@
+.about {
+    height: 100vh;
+}
 .about__container {
     display: flex;
     justify-content: center;
@@ -30,7 +33,7 @@
 .about__row {
     display: flex;
     justify-content: start;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     &:last-child {
         margin-bottom: 0;
@@ -52,13 +55,13 @@
 
 .about__hi {
     opacity: 0.5;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .about__name {
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 38px;
+    margin-bottom: 25px;
 }
 
 .about__me {
@@ -72,5 +75,20 @@
     opacity: 0.5;
     font-style: italic;
     line-height: 1.8;
+    position: relative;
+    line-height: 30px;
+
+    &:before {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: -60px;
+        content: '*';
+        width: 22px;
+        height: 22px;
+        opacity: 0.5;
+        color: #db0200;
+        font-size: 48px;
+    }
 }
 
