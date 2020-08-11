@@ -1,5 +1,9 @@
 .quote {
   margin-right: 23px;
+
+  @include desktop {
+        margin-right: 10px;
+    }
 }
 
 .quote__img {
@@ -7,6 +11,11 @@
   height: 77px;
   fill: #ffffff;
   opacity: 0.05; 
+
+  @include tablets {
+      width: 40px;
+      height: 35px;
+    }
 }
 
 .quote__text {
@@ -19,6 +28,10 @@
 
   @include desktop {
         padding-right: 13%;
+    }
+
+  @include desktop {
+        padding-right: 0;
     }
 }
 

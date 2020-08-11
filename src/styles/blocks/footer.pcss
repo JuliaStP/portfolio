@@ -16,6 +16,10 @@
     display: block;
     margin-right: 10px;
   }
+
+  @include tablets {
+    margin-right: 0;
+  }
 }
 
 .footer__copyright-col {
@@ -64,6 +68,10 @@
 
 .footer__contnet {
   display: flex;
+
+  @include tablets {
+        flex-direction: column;
+    }
 }
 
 .footer__menu {
@@ -72,6 +80,10 @@
   @include desktop {
     margin-bottom: 60px;
   }
+
+  @include tablets {
+    margin-bottom: 50px;
+  }
 }
 
 .footer__col {
@@ -79,6 +91,14 @@
 
   @include desktop {
     width: 43%;
+  }
+
+  @include tablets {
+    width: 100%
+  }
+
+  @include tablets {
+    margin-bottom: 60px;
   }
 }
 
@@ -92,11 +112,20 @@
     margin-bottom: 26px;
     padding-right: 5%;
   }
+
+  @include tablets {
+    margin-bottom: 15px;
+  }
+  
 }
 
 .footer__quote {
   width: 50%;
   line-height: 30px;
+
+  @include tablets {
+    width: 100%
+  }
 }
 
 .footer__quote-text {

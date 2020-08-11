@@ -4,15 +4,27 @@
     color: #333c49;
     font-weight: 700;
     margin-bottom: 82px;
+
+    @include tablets {
+        margin-bottom: 50px;
+    }
 }
 
 .projects__wrapper {
     display: flex;
     padding-bottom: 212px;
+
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .projects__slider {
     width: 100%;
+
+    @include tablets{
+        margin-bottom: 70px;
+    }
 }
 
 .projects__content {
@@ -20,6 +32,19 @@
 
     @include desktop{
         width: 42%;
+    }
+
+    @include tablets{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.projects__tags {
+
+    @include tablets{
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -29,6 +54,10 @@
     font-weight: 700;
     margin-bottom: 30px;
     line-height: 48px;
+
+    @include tablets {
+        margin-bottom: 20px;
+    }
 }
 
 .projects__text {
@@ -39,6 +68,11 @@
 
     @include desktop {
         margin-bottom: 52px;
+    }
+
+    @include tablets{
+        padding: 0 19%;
+        margin-bottom: 30px;
     }
 }
 

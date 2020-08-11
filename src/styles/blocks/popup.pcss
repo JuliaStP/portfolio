@@ -1,0 +1,40 @@
+.popup {
+  width: 40%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.popup__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  background: url(~images/icons/cross.svg);
+  fill: #414C63;
+  
+}
+
+.popup__menu {
+  padding-top: 150px;
+  color: #414C63;
+  font-size: 18px;
+  padding-left: 10%;
+  margin-bottom: 70px;
+
+  .menu__list {
+    flex-direction: column;
+  }
+
+  .menu__item {
+    margin-bottom: 20px;
+
+    &:before {
+      display: none;
+    }
+  }
+}

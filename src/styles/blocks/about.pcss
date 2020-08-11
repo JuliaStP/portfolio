@@ -23,6 +23,10 @@
     display: flex;
     flex-direction: column;
     margin-right: 75px;
+
+    @include tablets {
+        margin-right: 90px;
+    }
 }
 
 .about__img-wrapper {
@@ -32,6 +36,11 @@
     overflow: hidden;
     margin-bottom: 80px;
     align-self: center;
+
+    @include tablets {
+        margin-bottom: 50px;
+        align-self: flex-start;
+    }
 }
 
 .about__row {
@@ -41,6 +50,10 @@
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @include tablets {
+        margin-bottom: 14px;
     }
 }
 
@@ -59,17 +72,29 @@
     @include desktop {
         padding-right: 7%;
     }
+
+    @include desktop {
+        padding-right: 0;
+    }
 }
 
 .about__hi {
     opacity: 0.5;
     margin-bottom: 20px;
+
+    @include tablets {
+        margin-bottom: 10px;
+    }
 }
 
 .about__name {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 25px;
+
+    @include tablets {
+        margin-bottom: 35px;
+    }
 }
 
 .about__me {
@@ -81,6 +106,11 @@
 
     @include desktop {
         padding-right: 10%;
+    }
+
+    @include tablets {
+        padding-right: 0;
+        margin-bottom: 50px;
     }
 }
 

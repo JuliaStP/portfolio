@@ -3,12 +3,23 @@
     background-size: cover;
     position: relative;
 
-    &:before {
+    @include tablets {
+        min-height: 1175px;
+    }
+
+    /* &:before {
         content: url('../images/content/keyboard.png');
         bottom: -9%;
         left:0;
         position: absolute;
-    }
+
+        @include tablets {
+            display: none;
+            bottom: -153px;
+            left: 30%;
+            transform: rotate(260deg);
+        }
+    } */
 }
 
 .skills__container {
@@ -28,12 +39,23 @@
     @include desktop {
         width: 56%
     }
+
+    @include tablets {
+        width: 66%;
+        text-align: center;
+        padding-left: 0;
+    }
 }
 
 .skills__title {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 50px;
+
+    @include tablets {
+        padding: 0 10%;
+        margin-bottom: 25px;
+    }
 }
 
 .skills__text {
@@ -44,4 +66,8 @@
 
 .skills__tech {
     padding-left: 37%;
+
+    @include tablets {
+        padding-left: 0;
+    }
 }

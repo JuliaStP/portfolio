@@ -9,8 +9,13 @@
   display: flex;
   justify-content: space-between;
 
-  @include desktop {
+    @include desktop {
         padding-right: 45%;
+    }
+
+    @include tablets {
+        padding-right: 26%;
+        margin-bottom: 60px;
     }
 }
 
@@ -33,5 +38,9 @@
 
   @include desktop {
         width: 41%;
+    }
+
+  @include tablets {
+        width: 50%;
     }
 }

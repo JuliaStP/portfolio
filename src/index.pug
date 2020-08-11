@@ -2,6 +2,45 @@ extends ./main.layout.pug
 
 block content
   .welcome
+
+    .hamburger.hidden
+      .container.hamburger__container
+        .hamburger__col
+          a.logo(href='#') ЮА
+        .popup
+          button.popup__btn 
+            +icon('cross', 'popup__btn-img', alt='close')
+
+          nav.popup__menu.menu
+            ul.menu__list
+              li.menu__item
+                a.menu__link(href='#') Главная
+              li.menu__item
+                a.menu__link(href='#') Обо мне
+              li.menu__item
+                a.menu__link(href='#') Навыки
+              li.menu__item
+                a.menu__link(href='#') Работы
+              li.menu__item
+                a.menu__link(href='#') Отзывы
+
+          .header__socials.socials.socials--theme--dark
+            ul.socials__list
+              li.socials__item.socials__item--in
+                a.socials__link(href='#')
+                +icon('insta', 'socials__img', alt='instagram')
+              li.socials__item.socials__item--vk
+                a.socials__link(href='#')
+                +icon('vk', 'socials__img', alt='vkontakte')
+              li.socials__item.socials__item--git
+                a.socials__link(href='#')
+                +icon('github', 'socials__img', alt='github')
+              li.socials__item.socials__item--mail
+                a.socials__link(href='#')
+                +icon('envelope', 'socials__img', alt='mail')
+
+
+
     section.hero
       .container.hero__container
         header.header
@@ -30,6 +69,11 @@ block content
               li.socials__item.socials__item--mail
                 a.socials__link(href='#')
                 +icon('envelope', 'socials__img', alt='mail')
+
+          a.burger(href="#")
+            span.burger__line
+            span.burger__line
+            span.burger__line
         
         .hero__title
           .hero__site-name Личный сайт #[br] веб разработчика
@@ -63,6 +107,8 @@ block content
               p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
   section.skills
     .container.skills__container
+      //- .skills__img-wrapper
+      //-   +image('content/keyboard.png', 'skills__img', alt='keyboard')
       .skills__intro
         h3.skills__title Чем я могу быть полезена вам
         .skills__text
@@ -116,7 +162,7 @@ block content
                     +image('content/slider-4.jpg', 'slider__all-img', alt='work preview')
                  
         .projects__content
-          ul.tags
+          ul.tags.projects__tags
             li.tags__item HTML
             li.tags__item CSS 
             li.tags__item Javascript       
