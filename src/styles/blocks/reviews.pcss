@@ -8,6 +8,10 @@
   margin-bottom: 87px;
   display: flex;
   justify-content: space-between;
+
+  @include desktop {
+        padding-right: 45%;
+    }
 }
 
 .reviews__title {
@@ -26,4 +30,8 @@
 .reviews__slider-item {
   width: 34%;
   display: flex;
+
+  @include desktop {
+        width: 41%;
+    }
 }

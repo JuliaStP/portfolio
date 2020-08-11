@@ -5,7 +5,7 @@ block content
     section.hero
       .container.hero__container
         header.header
-          a.logo(href='#') ВА
+          a.logo(href='#') ЮА
           nav.header__menu.menu
             ul.menu__list
               li.menu__item
@@ -20,53 +20,53 @@ block content
             ul.socials__list
               li.socials__item.socials__item--in
                 a.socials__link(href='#')
-                +icon('insta', 'socials__img')
+                +icon('insta', 'socials__img', alt='instagram')
               li.socials__item.socials__item--vk
                 a.socials__link(href='#')
-                +icon('vk', 'socials__img')
+                +icon('vk', 'socials__img', alt='vkontakte')
               li.socials__item.socials__item--git
                 a.socials__link(href='#')
-                +icon('github', 'socials__img')
+                +icon('github', 'socials__img', alt='github')
               li.socials__item.socials__item--mail
                 a.socials__link(href='#')
-                +icon('envelope', 'socials__img')
+                +icon('envelope', 'socials__img', alt='mail')
         
         .hero__title
           .hero__site-name Личный сайт #[br] веб разработчика
-          .hero__name Владимир Астаханов
+          .hero__name Юлия Андреева
        
         .hero__scroll
           button.hero__scroll-btn Скролл
-            +icon('scroll', 'hero__scroll-img') 
+            +icon('scroll', 'hero__scroll-img', alt='scroll') 
     section.about
       .container.about__container
         .about__wrapper
           .about__info
             .about__img-wrapper
-              +image('content/user.jpg', 'about__img')
+              +image('content/user.jpg', 'about__img', alt='avatar')
             .about__column
               .about__row
                 span.about__label Проживаю:
-                span.about__value Новосибирск
+                span.about__value Санкт-Петербург
               .about__row
                 span.about__label Возраст:
-                span.about__value 27 лет
+                span.about__value 30 лет
               .about__row
                 span.about__label Родился:
-                span.about__value 1 января 1991
+                span.about__value 27 января 1990
           .about__content
             .about__hi Привет, меня зовут
-            h2.about__name Владимир Астаханов
+            h2.about__name Юлия Андреева
             .about__me
               p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
             .about__text
-              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
   section.skills
     .container.skills__container
       .skills__intro
-        h3.skills__title Чем я могу быть полезен вам
+        h3.skills__title Чем я могу быть полезена вам
         .skills__text
-          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       .skills__tech
         - 
           var skillsCategories = [
@@ -95,25 +95,25 @@ block content
       h2.projects__title Мои работы
       .projects__wrapper
         .projects__slider.slider
-          ul.slider__preview(data-slide="1")
+          ul.slider__preview(data-slide="2")
             li.slider__preview-item
-              +image('content/slider-1.jpg', 'slider__preview-img')
+              +image('content/slider-1.jpg', 'slider__preview-img', alt='work preview')
               .slider__btns
                 button(type='button').square-btns__item.square-btns__item--next  
                 button(type='button').square-btns__item.square-btns__item--prev  
               ul.slider__all
                 li.slider__all-item
                   a.slider__all-link(href='#')
-                    +image('content/slider-1.jpg', 'slider__all-img')
+                    +image('content/slider-1.jpg', 'slider__all-img', alt='work preview')
                 li.slider__all-item
                   a.slider__all-link(href='#')
-                    +image('content/slider-2.jpg', 'slider__all-img')
+                    +image('content/slider-2.jpg', 'slider__all-img', alt='work preview')
                 li.slider__all-item
                   a.slider__all-link(href='#')
-                    +image('content/slider-3.jpg', 'slider__all-img')
+                    +image('content/slider-3.jpg', 'slider__all-img', alt='work preview')
                 li.slider__all-item
                   a.slider__all-link(href='#')
-                    +image('content/slider-4.jpg', 'slider__all-img')
+                    +image('content/slider-4.jpg', 'slider__all-img', alt='work preview')
                  
         .projects__content
           ul.tags
@@ -122,9 +122,9 @@ block content
             li.tags__item Javascript       
           h3.projects__school Сайт школы образования
           .projects__text
-            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
           a.projects__link(href="http://loftschool.com" target="_blank")
-            +icon('link', 'projects__link-img') 
+            +icon('link', 'projects__link-img', alt='link icon') 
             span.projects__link-text Посмотреть сайт
   section.reviews
     .container  
@@ -137,27 +137,27 @@ block content
         ul.reviews__slider-content
           li.reviews__slider-item
             .quote
-              +icon('quote', 'quote__img') 
+              +icon('quote', 'quote__img', alt='quite icon') 
             .quote__wrapper
               .quote__text
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
               .quote__user 
                 .user-display__avatar
                   .user-display__avatar-wrapper
-                    +image('content/d.png', 'user-display__pic')
+                    +image('content/d.png', 'user-display__pic', alt='vladimir')
                 .user-display__data
                   .user-display__name Ковальчук Дмитрий
                   .user-display__occ Основатель Loftschool
           li.reviews__slider-item
             .quote
-              +icon('quote', 'quote__img') 
+              +icon('quote', 'quote__img', alt='quite icon') 
             .quote__wrapper
               .quote__text
                 p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт #[br]на слишком старых браузерах
               .quote__user 
                 .user-display__avatar
                   .user-display__avatar-wrapper 
-                    +image('content/v.png', 'user-display__pic')
+                    +image('content/v.png', 'user-display__pic', alt='vladimir')
                 .user-display__data
                   .user-display__name Владимир Сабанцев
                   .user-display__occ Преподаватель
@@ -167,7 +167,7 @@ block content
         .footer__copyright-col
           .footer__copyright-year &copy;2020
         .footer__info
-          .footer__name Владимир Астахов
+          .footer__name Юлия Андреева
           .footer__site Личный сайт #[br] веб-разработчика
       .footer__main
         .menu.footer__menu
@@ -180,26 +180,27 @@ block content
                 a.menu__link(href='#') Работы
               li.menu__item
                 a.menu__link(href='#') Отзывы
-       
-        .footer__text
-          p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-        
-        .socials 
-            ul.socials__list
-              li.socials__item.socials__item--footer
-                a.socials__link(href='#')
-                  +icon('insta', 'socials__img')
-              li.socials__item.socials__item--footer
-                a.socials__link(href='#')
-                  +icon('vk', 'socials__img')
-              li.socials__item.socials__item--footer
-                a.socials__link(href='#')
-                  +icon('github', 'socials__img')
-              li.socials__item.socials__item--footer
-                a.socials__link(href='#')
-                  +icon('envelope', 'socials__img')
+        .footer__contnet
+          .footer__col
+            .footer__text
+              p Этот сайт я сделала в рамках обучения в Школе онлайн образования Loftschool
+          
+            .socials 
+              ul.socials__list
+                li.socials__item.socials__item--footer
+                  a.socials__link(href='#')
+                    +icon('insta', 'socials__img', alt='instagram')
+                li.socials__item.socials__item--footer
+                  a.socials__link(href='#')
+                    +icon('vk', 'socials__img', alt='vkontakte')
+                li.socials__item.socials__item--footer
+                  a.socials__link(href='#')
+                    +icon('github', 'socials__img', alt='github')
+                li.socials__item.socials__item--footer
+                  a.socials__link(href='#')
+                    +icon('envelope', 'socials__img', alt='mail')
             
-      .footer__quote 
-        .footer__quote-text
-          p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-        span.footer__quote-author Martin Golding
+          .footer__quote 
+            .footer__quote-text
+              p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            span.footer__quote-author Martin Golding
