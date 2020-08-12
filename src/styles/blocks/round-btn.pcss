@@ -1,0 +1,30 @@
+.round-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  margin-right: 30px;
+  position: relative;
+  opacity:0.5;
+
+  &:before {
+    content: "";
+    width: 8px;
+    height: 10px;
+    display: block;
+    background: svg-load('arrow-down.svg', fill=#fff) center center / contain no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &--left {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-180deg);
+    }
+  }
+
+  &:hover {
+      opacity: 1;
+    }
+}

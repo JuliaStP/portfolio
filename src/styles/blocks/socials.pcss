@@ -7,8 +7,45 @@
 .socials__item {
   width: 25px;
   height: 25px;
+
+  &--footer {
+    width:50px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.3;
+    margin-right: 20px;
+
+    .socials__link {
+      width:50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .socials__img {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    &:hover {
+      opacity:1;
+      transition: 0.3s;
+    }
+  }
 }
 
 .socials__img {
   fill: #6f6864;
+  cursor:pointer;
+
+  &:hover {
+    fill: #fff;
+    transition: 0.3s;
+  }
 }

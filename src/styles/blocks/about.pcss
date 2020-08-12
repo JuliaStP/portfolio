@@ -1,6 +1,10 @@
+.about {
+    height: 100vh;
+}
 .about__container {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100%;
 }
 .about__wrapper {
@@ -8,14 +12,14 @@
     align-items: center;
     width: 976px;
     min-height: 380px;
-    margin-bottom: 270px;
+    /* margin-bottom: 270px; */
 }
 
 .about__info {
-    width: 40%;
+    width: 39%;
     display: flex;
     flex-direction: column;
-    margin-right: 60px;
+    margin-right: 75px;
 }
 
 .about__img-wrapper {
@@ -30,7 +34,7 @@
 .about__row {
     display: flex;
     justify-content: start;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     &:last-child {
         margin-bottom: 0;
@@ -52,25 +56,41 @@
 
 .about__hi {
     opacity: 0.5;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .about__name {
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 38px;
+    margin-bottom: 25px;
 }
 
 .about__me {
     opacity: 0.5;
-    margin-bottom: 105px;
+    margin-bottom: 100px;
     font-weight: 400;
     line-height: 1.8;
+    padding-right: 5%;
 }
 
 .about__text {
     opacity: 0.5;
     font-style: italic;
     line-height: 1.8;
+    position: relative;
+    line-height: 30px;
+
+    &:before {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: -60px;
+        content: '*';
+        width: 22px;
+        height: 22px;
+        opacity: 0.5;
+        color: #db0200;
+        font-size: 48px;
+    }
 }
 
