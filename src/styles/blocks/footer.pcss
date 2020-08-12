@@ -7,6 +7,10 @@
   display: flex;
   justify-content: space-between;
   padding-top:79px;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .footer__copyright {
@@ -42,6 +46,11 @@
   @include desktop {
     min-width: 55%;
   }
+
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
 }
 
 .footer__name {
@@ -62,10 +71,6 @@
   line-height: 30px;
 }
 
-.footer__main {
-  /* margin-right: 76px; */
-}
-
 .footer__contnet {
   display: flex;
 
@@ -83,6 +88,17 @@
 
   @include tablets {
     margin-bottom: 50px;
+  }
+
+  @include phones {
+    height: 60px;
+    max-width: 100%;
+    
+    .menu__list {
+      height: 100%;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
   }
 }
 

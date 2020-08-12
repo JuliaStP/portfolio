@@ -7,19 +7,31 @@
         min-height: 1175px;
     }
 
-    /* &:before {
+    &:before {
         content: url('../images/content/keyboard.png');
         bottom: -9%;
         left:0;
         position: absolute;
 
-        @include tablets {
-            display: none;
-            bottom: -153px;
-            left: 30%;
-            transform: rotate(260deg);
+
+        @include desktop {
+            bottom: -16%;
+            left: -16%;
+            transform: scale(.75);
         }
-    } */
+
+        @include tablets {
+            bottom: -370px;
+            left: 5%;
+            transform: rotate(270deg) scale(.5);
+        }
+
+        @include phones {
+            bottom: -428px;
+            left: -56%;
+            transform: rotate(270deg) scale(.35);
+        }
+    }
 }
 
 .skills__container {
@@ -45,6 +57,11 @@
         text-align: center;
         padding-left: 0;
     }
+
+    @include phones {
+        width: 100%;
+        text-align: left;
+    }
 }
 
 .skills__title {
@@ -55,6 +72,10 @@
     @include tablets {
         padding: 0 10%;
         margin-bottom: 25px;
+    }
+
+    @include phones {
+        padding: 0;
     }
 }
 
@@ -69,5 +90,10 @@
 
     @include tablets {
         padding-left: 0;
+        padding-bottom: 45%;
+    }
+
+    @include phones {
+        padding-bottom: 80%;
     }
 }

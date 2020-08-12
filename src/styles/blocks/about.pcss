@@ -1,5 +1,9 @@
 .about {
     height: 100vh;
+    
+    @include tablets {
+        min-height: 1175px;
+    }
 }
 .about__container {
     display: flex;
@@ -7,6 +11,7 @@
     align-items: center;
     height: 100%;
 }
+
 .about__wrapper {
     display: flex;
     align-items: center;
@@ -15,6 +20,10 @@
     
     @include desktop {
         width: 100%;
+    }
+
+    @include phones {
+        flex-direction: column;
     }
 }
 
@@ -26,6 +35,13 @@
 
     @include tablets {
         margin-right: 90px;
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        justify-content: center;
+        margin-bottom: 50px;
     }
 }
 
@@ -40,6 +56,10 @@
     @include tablets {
         margin-bottom: 50px;
         align-self: flex-start;
+    }
+
+    @include phones {
+        align-self: center;
     }
 }
 
@@ -75,6 +95,10 @@
 
     @include desktop {
         padding-right: 0;
+    }
+
+    @include phones {
+        width: 100%;
     }
 }
 

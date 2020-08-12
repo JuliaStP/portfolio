@@ -10,6 +10,10 @@
     @include tablets{
         height: 420px;
     }
+
+    @include phones {
+        height: 230px;
+    }
 }
 
 .slider__preview {
@@ -27,8 +31,10 @@
         width: 93%;
     }
 
+    @include phones {
+        width: 100%;
+  }
 
-    
 
     &:before {
     content: attr(data-slide);
@@ -45,12 +51,16 @@
     @include desktop {
         top: 64%;
         font-size: 300px;
-    }
+        }
 
     @include tablets {
         top: 76%;
         font-size: 350px;
-    }
+        }
+
+    @include phones {
+        display: none;
+        }
     }
 }
 
@@ -83,6 +93,10 @@
 
     @include desktop {
         width: 495px;
+    }
+
+    @include phones{
+        display: none;
     }
 }
 
@@ -119,6 +133,11 @@
 
     @include tablets {
         top:73%;
+    }
+
+    @include phones{
+        top: 56%;
+        left: 86%;
     }
 
 }

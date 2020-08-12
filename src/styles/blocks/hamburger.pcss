@@ -3,6 +3,10 @@
   background-color: #fff;
   padding-top: 50px;
   height: 100vh;
+
+  @include phones {
+    background: #fff;
+  }
 }
 
 .hamburger__container {
@@ -10,7 +14,14 @@
   justify-content: space-between;
 }
 
+.hamburger__col {
+
+  @include phones {
+    display: none;
+  }
+}
+
 .hidden {
-  /* left: -9999px; */
+  left: -9999px;
   display: none;
 }

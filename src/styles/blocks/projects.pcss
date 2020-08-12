@@ -1,3 +1,7 @@
+.projects {
+    position: relative;
+}
+
 .projects__title {
     padding-top: 200px;
     font-size: 36px;
@@ -7,6 +11,10 @@
 
     @include tablets {
         margin-bottom: 50px;
+    }
+
+    @include phones {
+        text-align: center;
     }
 }
 
@@ -25,6 +33,11 @@
     @include tablets{
         margin-bottom: 70px;
     }
+
+    @include phones{
+        position: absolute;
+        left: 0;
+    }
 }
 
 .projects__content {
@@ -37,6 +50,11 @@
     @include tablets{
         width: 100%;
         text-align: center;
+    }
+
+    @include phones {
+        text-align: left;
+        padding-top: 95%;
     }
 }
 
@@ -58,6 +76,10 @@
     @include tablets {
         margin-bottom: 20px;
     }
+
+    @include phones {
+        line-height: 30px;
+    }
 }
 
 .projects__text {
@@ -73,6 +95,10 @@
     @include tablets{
         padding: 0 19%;
         margin-bottom: 30px;
+    }
+
+    @include phones {
+        padding: 0;
     }
 }
 
