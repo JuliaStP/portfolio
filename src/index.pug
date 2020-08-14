@@ -116,39 +116,8 @@ block content
   section.projects
     .container.projects__container
       h2.projects__title Мои работы
-      .projects__wrapper
-        .projects__slider.slider
-          ul.slider__preview(data-slide="2")
-            li.slider__preview-item
-              +image('content/slider-1.jpg', 'slider__preview-img', alt='work preview')
-              .slider__btns
-                button(type='button').square-btns__item.square-btns__item--next  
-                button(type='button').square-btns__item.square-btns__item--prev  
-              ul.slider__all
-                li.slider__all-item
-                  a.slider__all-link(href='#')
-                    +image('content/slider-1.jpg', 'slider__all-img', alt='work preview')
-                li.slider__all-item
-                  a.slider__all-link(href='#')
-                    +image('content/slider-2.jpg', 'slider__all-img', alt='work preview')
-                li.slider__all-item
-                  a.slider__all-link(href='#')
-                    +image('content/slider-3.jpg', 'slider__all-img', alt='work preview')
-                li.slider__all-item
-                  a.slider__all-link(href='#')
-                    +image('content/slider-4.jpg', 'slider__all-img', alt='work preview')
-                 
-        .projects__content
-          ul.tags.projects__tags
-            li.tags__item HTML
-            li.tags__item CSS 
-            li.tags__item Javascript       
-          h3.projects__school Сайт школы образования
-          .projects__text
-            p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-          a.projects__link(href="http://loftschool.com" target="_blank")
-            +icon('link', 'projects__link-img', alt='link icon') 
-            span.projects__link-text Посмотреть сайт
+      #projects-component
+
   section.reviews
     .container  
       .reviews__slider
