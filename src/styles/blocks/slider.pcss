@@ -80,7 +80,11 @@
 
     @include desktop {
         object-fit: cover;
-        object-position: top right;
+        object-position: top left;
+    }
+
+    @include phones {
+        position: unset;
     }
 }
 
@@ -142,7 +146,7 @@
 
     @include phones{
         top: 56%;
-        left: 86%;
+        right:0;
     }
 
 }

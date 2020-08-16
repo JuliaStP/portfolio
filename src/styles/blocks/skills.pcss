@@ -1,6 +1,5 @@
 .skills {
-    background: url('~images/content/bg-middle.png') center center no-repeat;
-    background-size: cover;
+    background: url('~images/content/bg-middle.png') center center / cover no-repeat;
     position: relative;
 
     @include tablets {
@@ -8,28 +7,33 @@
     }
 
     &:before {
-        content: url('../images/content/keyboard.png');
-        bottom: -9%;
-        left:0;
+        content: '';
+        width: 680px;
+        height: 983px;
+        background: url('../images/content/keyboard.png') top left / auto no-repeat;
         position: absolute;
-
-
+        left: 0;
+        bottom: -10%;
+        
         @include desktop {
-            bottom: -16%;
-            left: -16%;
+            background-size: contain;
             transform: scale(.75);
+            left: -14%;
+            bottom: -22%;
         }
 
         @include tablets {
-            bottom: -370px;
+            width: 100%;
+            right: 0;
             left: 0;
-            right:0;
+            bottom: -272px;
             transform: rotate(270deg) scale(.5);
         }
 
         @include phones {
-            bottom: -428px;
-            transform: rotate(270deg) scale(.35);
+            transform: rotate(270deg) scale(.75);
+            background-position: center;
+            bottom: -330px;
         }
     }
 }
@@ -87,6 +91,7 @@
 
 .skills__tech {
     padding-left: 37%;
+    z-index: 50;
 
     @include tablets {
         padding-left: 0;

@@ -1,11 +1,12 @@
 .popup {
-  width: 40%;
+  width: 43%;
   height: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  right: 0;
 
   @include phones {
     width: 100%;
@@ -15,8 +16,8 @@
 
 .popup__btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 6%;
+  right: 11%;
   width: 36px;
   height: 36px;
   background: url(~images/icons/cross.svg);
@@ -25,13 +26,13 @@
 }
 
 .popup__menu {
-  padding-top: 150px;
   color: #414C63;
   font-size: 18px;
-  padding-left: 10%;
+  padding-left: 15%;
   margin-bottom: 70px;
 
   @include phones {
+    padding-top: 45%;
     margin-bottom: 140px;
   }
 

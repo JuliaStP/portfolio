@@ -26,16 +26,16 @@ block content
 
           .header__socials.socials.socials--theme--dark
             ul.socials__list
-              li.socials__item.socials__item--in
+              li.socials__item
                 a.socials__link(href='#')
                 +icon('insta', 'socials__img', alt='instagram')
-              li.socials__item.socials__item--vk
+              li.socials__item
                 a.socials__link(href='#')
                 +icon('vk', 'socials__img', alt='vkontakte')
-              li.socials__item.socials__item--git
+              li.socials__item
                 a.socials__link(href='#')
                 +icon('github', 'socials__img', alt='github')
-              li.socials__item.socials__item--mail
+              li.socials__item
                 a.socials__link(href='#')
                 +icon('envelope', 'socials__img', alt='mail')
 
@@ -80,7 +80,7 @@ block content
         .hero__scroll
           button.hero__scroll-btn Скролл
             +icon('scroll', 'hero__scroll-img', alt='scroll') 
-    section.about
+    section.about.fullscreen-section
       .container.about__container
         .about__wrapper
           .about__info
@@ -119,40 +119,9 @@ block content
       #projects-component
 
   section.reviews
-    .container  
-      .reviews__slider
-        .reviews__header
-          .reviews__title Что обо мне говорят
-          .reviews__slider-btns
-            button(type='button').round-btn.round-btn--left 
-            button(type='button').round-btn.round-btn--right 
-        ul.reviews__slider-content
-          li.reviews__slider-item
-            .quote
-              +icon('quote', 'quote__img', alt='quite icon') 
-            .quote__wrapper
-              .quote__text
-                p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-              .quote__user 
-                .user-display__avatar
-                  .user-display__avatar-wrapper
-                    +image('content/d.png', 'user-display__pic', alt='vladimir')
-                .user-display__data
-                  .user-display__name Ковальчук Дмитрий
-                  .user-display__occ Основатель Loftschool
-          li.reviews__slider-item
-            .quote
-              +icon('quote', 'quote__img', alt='quite icon') 
-            .quote__wrapper
-              .quote__text
-                p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт #[br]на слишком старых браузерах
-              .quote__user 
-                .user-display__avatar
-                  .user-display__avatar-wrapper 
-                    +image('content/v.png', 'user-display__pic', alt='vladimir')
-                .user-display__data
-                  .user-display__name Владимир Сабанцев
-                  .user-display__occ Преподаватель
+    .container
+      #slider-component
+      
   footer.footer
     .container.footer__container
       .footer__copyright

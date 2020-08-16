@@ -1,4 +1,13 @@
 .quote {
+  display: flex;
+
+  @include phones {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+.quote__img-wrapper {
   margin-right: 23px;
 
   @include desktop {

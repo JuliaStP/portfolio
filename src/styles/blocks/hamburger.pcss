@@ -1,8 +1,8 @@
 .hamburger {
-  background: url(~images/content/bg-burger.png) top left no-repeat;
+  background: url(~images/content/bg-burger.png) top left / cover no-repeat;
   background-color: #fff;
-  padding-top: 50px;
   height: 100vh;
+  position: relative;
 
   @include phones {
     background: #fff;
@@ -15,6 +15,7 @@
 }
 
 .hamburger__col {
+  padding-top: 75px;
 
   @include phones {
     display: none;
@@ -22,6 +23,5 @@
 }
 
 .hidden {
-  left: -9999px;
   display: none;
 }

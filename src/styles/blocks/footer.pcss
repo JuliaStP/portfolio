@@ -8,6 +8,12 @@
   justify-content: space-between;
   padding-top:79px;
 
+
+  @include tablets {
+    padding-top: 60px;
+    padding-bottom: 90px;
+  }
+
   @include phones {
     flex-direction: column;
   }
@@ -115,6 +121,10 @@
 
   @include tablets {
     margin-bottom: 60px;
+  }
+
+  @include phones {
+    margin-bottom: 35px;
   }
 }
 
