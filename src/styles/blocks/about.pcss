@@ -1,5 +1,9 @@
 .about {
     height: 100vh;
+    
+    @include tablets {
+        min-height: 1175px;
+    }
 }
 .about__container {
     display: flex;
@@ -7,12 +11,20 @@
     align-items: center;
     height: 100%;
 }
+
 .about__wrapper {
     display: flex;
     align-items: center;
     width: 976px;
     min-height: 380px;
-    /* margin-bottom: 270px; */
+    
+    @include desktop {
+        width: 100%;
+    }
+
+    @include phones {
+        flex-direction: column;
+    }
 }
 
 .about__info {
@@ -20,6 +32,17 @@
     display: flex;
     flex-direction: column;
     margin-right: 75px;
+
+    @include tablets {
+        margin-right: 90px;
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
 }
 
 .about__img-wrapper {
@@ -29,6 +52,15 @@
     overflow: hidden;
     margin-bottom: 80px;
     align-self: center;
+
+    @include tablets {
+        margin-bottom: 50px;
+        align-self: flex-start;
+    }
+
+    @include phones {
+        align-self: center;
+    }
 }
 
 .about__row {
@@ -38,6 +70,10 @@
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @include tablets {
+        margin-bottom: 14px;
     }
 }
 
@@ -52,17 +88,37 @@
 
 .about__content {
     width: 60%;
+
+    @include desktop {
+        padding-right: 7%;
+    }
+
+    @include desktop {
+        padding-right: 0;
+    }
+
+    @include phones {
+        width: 100%;
+    }
 }
 
 .about__hi {
     opacity: 0.5;
     margin-bottom: 20px;
+
+    @include tablets {
+        margin-bottom: 10px;
+    }
 }
 
 .about__name {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 25px;
+
+    @include tablets {
+        margin-bottom: 35px;
+    }
 }
 
 .about__me {
@@ -71,6 +127,15 @@
     font-weight: 400;
     line-height: 1.8;
     padding-right: 5%;
+
+    @include desktop {
+        padding-right: 10%;
+    }
+
+    @include tablets {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
 }
 
 .about__text {
@@ -91,6 +156,10 @@
         opacity: 0.5;
         color: #db0200;
         font-size: 48px;
+
+        @include phones {
+            left: -10%;
+        }
     }
 }
 

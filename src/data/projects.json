@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Сайт школы образования",
+    "skills": "HTML, CSS, Javascript",
+    "img": "slider-1.jpg",
+    "link": "http://loftschool.com",
+    "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+  },
+  {
+    "id": 2,
+    "title": "Проект CHOCCO",
+    "skills": "HTML, CSS, Javascript",
+    "img": "slider-2.jpg",
+    "link": "http://juliastp.github.io/chocco/dist",
+    "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+  },
+  {
+    "id": 3,
+    "title": "Сайт тур агенства Air-Asia",
+    "skills": "HTML, CSS",
+    "img": "slider-3.jpg",
+    "link": "http://juliastp.github.io/air-asia",
+    "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+  },
+  {
+    "id": 4,
+    "title": "Сайт банка Lion-Bank",
+    "skills": "HTML, CSS",
+    "img": "slider-4.jpg",
+    "link": "http://loftschool.com",
+    "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+  },
+  {
+    "id": 5,
+    "title": "Trial",
+    "skills": "HTML, CSS",
+    "img": "slider-5.jpg",
+    "link": "http://loftschool.com",
+    "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+  }
+]

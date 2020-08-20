@@ -2,23 +2,45 @@
   position:relative;
   width: 160px;
   height: 160px;
+
+  @include phones {
+    width: 155px;
+    height: 155px;
+  }
 }
 
 .skill-row__title {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 38px;
+
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .skill-row__list {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 29px;
+
+  @include tablets {
+    justify-content: center;
+  }
 }
 
 .skill-row__item {
   margin-right: 40px;
 
   &:last-child {
+    margin-right: 0;
+  }
+
+  @include desktop {
+    margin-right: 25px;
+  }
+
+  @include phones {
     margin-right: 0;
   }
 }

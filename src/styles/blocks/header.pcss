@@ -5,6 +5,24 @@
   padding-top: 62px;
 }
 
+.header__menu {
+
+  @include tablets {
+    display: none;
+  }
+}
+
+.header__socials {
+
+  @include tablets {
+      padding-left: 35%;
+    }
+
+  @include phones {
+      display: none;
+    }
+}
+
 .logo {
   width: 48px;
   height: 26px;

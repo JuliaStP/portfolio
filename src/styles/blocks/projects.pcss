@@ -1,22 +1,69 @@
+.projects {
+    position: relative;
+}
+
 .projects__title {
     padding-top: 200px;
     font-size: 36px;
     color: #333c49;
     font-weight: 700;
     margin-bottom: 82px;
+
+    @include tablets {
+        margin-bottom: 50px;
+    }
+
+    @include phones {
+        text-align: center;
+    }
 }
 
 .projects__wrapper {
     display: flex;
     padding-bottom: 212px;
+
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .projects__slider {
     width: 100%;
+
+    @include tablets{
+        margin-bottom: 70px;
+    }
+
+    @include phones{
+        position: absolute;
+        left: 0;
+    }
 }
 
 .projects__content {
-    width: 31%
+    width: 31%;
+
+    @include desktop{
+        width: 42%;
+    }
+
+    @include tablets{
+        width: 100%;
+        text-align: center;
+    }
+
+    @include phones {
+        text-align: left;
+        padding-top: 85%;
+    }
+}
+
+.projects__tags {
+
+    @include tablets{
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .projects__school {
@@ -25,6 +72,14 @@
     font-weight: 700;
     margin-bottom: 30px;
     line-height: 48px;
+
+    @include tablets {
+        margin-bottom: 20px;
+    }
+
+    @include phones {
+        line-height: 30px;
+    }
 }
 
 .projects__text {
@@ -32,6 +87,19 @@
     opacity:0.7;
     margin-bottom:36px;
     line-height: 30px;
+
+    @include desktop {
+        margin-bottom: 52px;
+    }
+
+    @include tablets{
+        padding: 0 19%;
+        margin-bottom: 30px;
+    }
+
+    @include phones {
+        padding: 0;
+    }
 }
 
 .projects__link {
