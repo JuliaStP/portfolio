@@ -13,14 +13,23 @@ new Vue({
       reviews: [],
       sliderOptions: {
         slidesPerView: 1,
+        loop: false,
         breakpoints: {
           480: {
             slidesPerView: 2
           }
         },
-        loop: true
-      }
-    } 
+      },
+      buttons: {
+        prev: false,
+        next: true
+       }
+    }; 
+  },
+  computed: {
+    slider() {
+      return this.$refs["slider"].$swiper
+    }
   },
   methods: {
     requireImg(data) {
@@ -32,19 +41,24 @@ new Vue({
       });
     },
     slide(direction) {
-      const slider = this.$refs["slider"].$swiper;
       switch(direction) {
-        case 'left':
-          slider.slidePrev()
+        case 'prev':
+          this.slider.slidePrev()
         break;
-        case 'right':
-          slider.slideNext()
+        case 'next':
+          this.slider.slideNext()
         break;
       }
     },
   },
+  mounted() {
+    this.slider.on("slideChange", (swiper) => {
+      this.buttons.prev = !swiper.isBeginning;
+      this.buttons.next = !swiper.isEnd;
+    });
+  },
   created() {
     const data = require('../data/reviews.json');
     this.reviews = this.requireImg(data)
-  }
+  },
 });
