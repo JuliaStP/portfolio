@@ -1,3 +1,9 @@
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -13,6 +19,10 @@
 .header {
   display: flex;
   margin-bottom: 60px;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -20,6 +30,10 @@
   font-size: 21px;
   line-height: 29px;
   margin-right: 60px;
+
+  @include phones {
+    margin-bottom: 30px;
+  }
 }
 
 .skills {
@@ -32,4 +46,8 @@
 .item {
   width: 49%;
   margin-bottom: 20px;
+
+  @include phones {
+    width: 100%;
+  }
 }

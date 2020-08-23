@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped src="./headline.pcss">
-  /* @import "../../styles/mixins.pcss"; */
+  
 </style>

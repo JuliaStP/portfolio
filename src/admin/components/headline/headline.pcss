@@ -1,3 +1,9 @@
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
 .headline-component {
   background: #43436B;
 }
@@ -11,9 +17,9 @@
     color: rgba(255, 255, 255, 0.5);
     margin-left: 25px;
 
-    /* @include phones {
+    @include phones {
       display: none;
-    } */
+    }
   }
 } 
 
