@@ -1,8 +1,7 @@
 <template>
-  <div class="about-component">
-    
+  <div class="about-component">  
     <div class="main-content">
-      <div class="container">
+      <div class="container" v-if="categories.length">
         <div class="header">
           <h2 class="title">Блок «Обо мне»</h2>
           <iconed-button 
@@ -13,14 +12,20 @@
         </div>
         <ul class="skills">
           <li class="item" v-if="emptyCategoryVisible">
-            <category empty 
-              @remove='emptyCategoryVisible = false' />
+            <category 
+              @remove='emptyCategoryVisible = false'
+              @approve='createCategory' 
+              empty />
           </li>
           <li class="item" v-for="category in categories" :key='category.id'>
-            <category :title="category.name" :skills="category.skills"/>
+            <category :title="category.name" :skills="category.skills" 
+              @create-skill='createSkill'
+              @edit-skill='editSkill'
+              @remove-skill='removeSkill'/>
           </li>
         </ul>
       </div>
+      <div class="container" v-else> Loading, please wait</div>
     </div>
   </div>
 </template>
@@ -29,6 +34,7 @@
 
 import button from '../../components/button';
 import category from '../../components/category';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   components: {
@@ -37,12 +43,44 @@ export default {
   },
   data() {
     return {
-      categories: [],
-      emptyCategoryVisible: false
+      // categories: [],
+      emptyCategoryVisible: false,
+    };
+  },
+  computed: {
+    ...mapState("categories",{
+      categories: state => state.data
+    })
+  },
+  methods: {
+    ...mapActions({
+      createCategoryAction: "categories/create",
+      fetchCategoryAction: "categories/fetch",
+      addSkillAction: "skills/add",
+      editSkillAction: "skills/edit",
+      removeSkillaction: "skills/remove"
+    }),
+    createSkill(){
+      this.addSkillAction();
+    },
+    editSkill(){
+      this.editSkillAction();
+    },
+    removeSkill(){
+      this.removeSkillAction();
+    },
+    async createCategory(categoryTitle) {
+      try {
+        await this.createCategoryAction(categoryTitle);
+        this.emptyCategoryVisible = false;
+      } catch (error) {
+        console.log(error.message);
+      }
     }
   },
   created() {
-    this.categories = require('../../data/categories.json')
+    this.fetchCategoryAction();
+    // this.categories = require('../../data/categories.json')
   }
 };
 

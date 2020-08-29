@@ -20,12 +20,11 @@
 <script>
 
 import{Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
-import axios from 'axios';
+import $axios from '../../requests';
+import { mapActions } from 'vuex';
 
 import appInput from '../../components/input';
 import appButton from '../../components/button';
-
-const baseUrl = "https://webdev-api.loftschool.com/";
 
 export default {
   mixins: [ValidatorMixin],
@@ -49,23 +48,28 @@ export default {
     isLoginBtnDisabled: false
   }),
   methods: {
-    handleSubmit() {
-      this.$validate().then((validated) => {
-        if (validated === false) return;
+    ...mapActions({
+      showTooltip: 'tooltips/show'
+    }),
 
-        this.isLoginBtnDisabled = true;
+    async handleSubmit() {
+      if ((await this.$validate()) === false) return;
+      this.isLoginBtnDisabled = true;
 
-        axios.post("https://webdev-api.loftschool.com/" + '/login', this.user).then(response => {
-          const token = response.data.token;
-          localStorage.setItem("token", token)
-          axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-          this.$router.replace('/');
+      try {
+        const response = await $axios.post('/login', this.user);
+        const token = response.data.token;
+        localStorage.setItem("token", token)
+        $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        this.$router.replace('/');
+      } catch (error) {
+        this.showTooltip({
+          text: error.response.data.error,
+          type: "error"
         })
-        .catch((error) => console.log(error.response.data.error))
-        .finally(() => {
-          this.isLoginBtnDisabled = false;
-        })
-      });
+      } finally {
+        this.isLoginBtnDisabled = false;
+      }
     }
   }
 };

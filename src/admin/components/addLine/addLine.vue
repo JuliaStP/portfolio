@@ -1,15 +1,14 @@
 <template>
   <div 
-    :class="['add-line-component', {blocked: blocked}]"
-  >
+    :class="['add-line-component', {blocked: blocked}]">
     <div class="title">
-      <app-input placeholder="Новый навык" />
+      <app-input v-model="skill.title" placeholder="Новый навык" />
     </div>
     <div class="percentage">
-      <app-input type="number" min="0" max="100" maxlength="3" />
+      <app-input v-model="skill.percentage" type="number" min="0" max="100" maxlength="3" />
     </div>
     <div class="button">
-      <round-button type="round" />
+      <round-button type="round" @click="handleClick" />
     </div>
   </div>
 </template>
@@ -26,6 +25,19 @@ export default {
     appInput: input,
     roundButton: button,
   },
+  data() {
+    return {
+      skill: {
+        title: '',
+        percentage: ''
+      }
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit('approve', this.skill)
+    }
+  }
 };
 </script>
 
