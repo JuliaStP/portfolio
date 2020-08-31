@@ -18,7 +18,7 @@ export const defaultView = () => ({
       skill: {
         id: 0,
         title: 'Test',
-        percentage: 50
+        percent: 50
       }
     }
   },

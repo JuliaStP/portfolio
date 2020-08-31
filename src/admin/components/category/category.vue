@@ -4,7 +4,7 @@
       slot="title" 
       v-model="categoryTitle" 
       :editmodeDefault="empty"
-      @remove="$emit('remove', $event)" 
+      @remove="$emit('remove-category', $event)" 
       @approve="$emit('approve', $event)"
     />
     <template slot='content'>
@@ -18,7 +18,7 @@
       </ul>
       <div class="bottom-line">
         <add-line 
-          @approve="$emit('creat-skill', $event)"
+          @approve="$emit('create-skill', $event)"
           :blocked="empty" />
       </div>
     </template>
@@ -46,15 +46,15 @@ export default {
     },
     skills: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
       categoryTitle: this.title,
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

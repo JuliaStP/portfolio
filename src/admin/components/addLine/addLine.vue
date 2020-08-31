@@ -2,10 +2,10 @@
   <div 
     :class="['add-line-component', {blocked: blocked}]">
     <div class="title">
-      <app-input v-model="skill.title" placeholder="Новый навык" />
+      <app-input :errorMessage="validation.firstError('skill.title')" v-model="skill.title" placeholder="Новый навык" />
     </div>
-    <div class="percentage">
-      <app-input v-model="skill.percentage" type="number" min="0" max="100" maxlength="3" />
+    <div class="percent">
+      <app-input :errorMessage="validation.firstError('skill.percent')" v-model="skill.percent" type="number" min="0" max="100" maxlength="3" />
     </div>
     <div class="button">
       <round-button type="round" @click="handleClick" />
@@ -14,10 +14,24 @@
 </template>
 
 <script>
+import{Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
+
 import input from "../input";
 import button from "../button";
 
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    'skill.title': value => {
+      return Validator.value(value).required('Введите навык');
+    },
+    'skill.percent': value => {
+      return Validator.value(value)
+        .required('Введите процент')
+        .integer('Введите число')
+        .between(0, 100, 'Введите от 0 до 100')
+    },
+  },
   props: {
     blocked: Boolean
   },
@@ -29,12 +43,14 @@ export default {
     return {
       skill: {
         title: '',
-        percentage: ''
+        percent: ''
       }
     }
   },
   methods: {
-    handleClick() {
+    async handleClick() {
+      if (await this.$validate() === false) 
+        return;
       this.$emit('approve', this.skill)
     }
   }

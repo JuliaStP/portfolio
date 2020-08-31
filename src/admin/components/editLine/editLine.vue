@@ -4,6 +4,7 @@
       <div class="text">{{value}}</div>
       <div class="icon">
         <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol='trash' class="btn" @click="$emit('remove', $event)" grayscale />
       </div>
     </div>
     <div v-else class="title">
@@ -17,7 +18,7 @@
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
           no-side-paddings="no-side-paddings"
-
+          v-model="category.title" :errorMessage="validation.firstError('category.title')"
         ></app-input>
       </div>
       <div class="buttons">
@@ -34,7 +35,15 @@
 
 <script>
 
+import{Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
+
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    'category.title': value => {
+      return Validator.value(value).required('Введите название категории');
+    }
+  },
   props: {
     value: {
       type: String,
@@ -51,6 +60,7 @@ export default {
     return {
       editmode: this.editmodeDefault,
       title: this.value,
+      category: { title: '' }
     };
   },
   methods: {
@@ -66,6 +76,7 @@ export default {
   components: {
     icon: () => import("components/icon"),
     appInput: () => import("components/input"),
+
   },
 };
 </script>

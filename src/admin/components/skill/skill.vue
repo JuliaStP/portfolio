@@ -1,10 +1,10 @@
 <template>
-  <div class="skill-component" v-if="editMode === false">
+  <div class="skill-component" v-if="currentSkill.editMode === false">
     <div class="title">{{skill.title}}</div>
-    <div class="percentage">{{skill.percentage}}  %</div>
+    <div class="percent">{{skill.percent}}  %</div>
     <div class="buttons">
-      <icon symbol='pencil' class="btn" @click="editMode = true" grayscale />
-      <icon symbol='trash' class="btn" @click="$emit('remove', skill.id)" grayscale />
+      <icon symbol='pencil' class="btn" @click="currentSkill.editMode = true" grayscale />
+      <icon symbol='trash' class="btn" @click="$emit('remove', currentSkill)" grayscale />
     </div>
   </div>
 
@@ -12,9 +12,9 @@
     <div class="title">
       <app-input noSidePaddings v-model="currentSkill.title"/>
     </div>
-    <div class="percentage">
+    <div class="percent">
       <app-input
-      v-model="currentSkill.percentage"
+      v-model="currentSkill.percent"
       type="number"
       min="0"
       max="100"
@@ -23,7 +23,7 @@
     </div>
     <div class="buttons">
       <icon symbol='tick' class="btn" @click="$emit('approve', currentSkill)"/>
-      <icon symbol='cross' class="btn" @click="editMode = false" />
+      <icon symbol='cross' class="btn" @click="currentSkill.editMode = false" />
     </div>
   </div>
 </template>
@@ -43,11 +43,12 @@ export default {
   },
   data() {
     return {
-      editMode: false,
       currentSkill: {
-        id: 0,
+        id: this.skill.id,
         title: this.skill.title,
-        percentage: this.skill.percentage
+        percent: this.skill.percent,
+        category: this.skill.category,
+        editMode: false
       }
     }
   },

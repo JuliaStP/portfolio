@@ -10,6 +10,7 @@
             @click="emptyCategoryVisible = true" 
             title="Добавить группу" />
         </div>
+        
         <ul class="skills">
           <li class="item" v-if="emptyCategoryVisible">
             <category 
@@ -18,8 +19,13 @@
               empty />
           </li>
           <li class="item" v-for="category in categories" :key='category.id'>
-            <category :title="category.name" :skills="category.skills" 
-              @create-skill='createSkill'
+            <category 
+              :category="category"
+              :title="category.category" 
+              :skills="category.skills"
+              
+              @remove-category ='removeCategory'
+              @create-skill='createSkill($event, category.id)'
               @edit-skill='editSkill'
               @remove-skill='removeSkill'/>
           </li>
@@ -34,16 +40,17 @@
 
 import button from '../../components/button';
 import category from '../../components/category';
+import skill from '../../components/skill';
 import { mapActions, mapState } from 'vuex';
 
 export default {
   components: {
     iconedButton: button,
-    category
+    category,
+    skill
   },
   data() {
     return {
-      // categories: [],
       emptyCategoryVisible: false,
     };
   },
@@ -56,18 +63,27 @@ export default {
     ...mapActions({
       createCategoryAction: "categories/create",
       fetchCategoryAction: "categories/fetch",
+      editCategoryAction: "categories/edit",
+      removeCategoryAction: "categories/remove",
       addSkillAction: "skills/add",
       editSkillAction: "skills/edit",
-      removeSkillaction: "skills/remove"
+      removeSkillAction: "skills/remove"
     }),
-    createSkill(){
-      this.addSkillAction();
+    async createSkill(skill, categoryId) {
+      const newSkill = {
+        ...skill,
+        category: categoryId
+      }
+      await this.addSkillAction(newSkill);
+      skill.title = '';
+      skill.percent = '';
     },
-    editSkill(){
-      this.editSkillAction();
+    async editSkill(skill){
+      await this.editSkillAction(skill);
+      skill.editMode = false;
     },
-    removeSkill(){
-      this.removeSkillAction();
+    removeSkill(skill){
+      this.removeSkillAction(skill);
     },
     async createCategory(categoryTitle) {
       try {
@@ -76,11 +92,17 @@ export default {
       } catch (error) {
         console.log(error.message);
       }
+    },
+    // editCategory(category){
+    //   console.log('edit');
+    // },
+    removeCategory(categoryToRemove) {
+       this.removeCategoryAction(categoryToRemove);
+      // console.log(categoryToRemove);
     }
   },
   created() {
     this.fetchCategoryAction();
-    // this.categories = require('../../data/categories.json')
   }
 };
 
