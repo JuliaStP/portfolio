@@ -23,8 +23,8 @@
               :category="category"
               :title="category.category" 
               :skills="category.skills"
-              
-              @remove-category ='removeCategory'
+              @edit-category='editCategory(category)'
+              @remove-category ='removeCategory(category.id)'
               @create-skill='createSkill($event, category.id)'
               @edit-skill='editSkill'
               @remove-skill='removeSkill'/>
@@ -89,16 +89,18 @@ export default {
       try {
         await this.createCategoryAction(categoryTitle);
         this.emptyCategoryVisible = false;
+        category.title = '';
       } catch (error) {
         console.log(error.message);
       }
     },
-    // editCategory(category){
-    //   console.log('edit');
-    // },
-    removeCategory(categoryToRemove) {
-       this.removeCategoryAction(categoryToRemove);
-      // console.log(categoryToRemove);
+    async editCategory(category) {
+      await this.editCategoryAction(category);
+      category.editMode = false;
+      // console.log(category);
+    },
+    removeCategory(categoryId) {
+       this.removeCategoryAction(categoryId);
     }
   },
   created() {

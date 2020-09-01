@@ -1,37 +1,3 @@
-<template lang="pug">
-  .card-work
-    .card-work__preview
-      img(:src="project.img").card-work__img
-      tags.card-work__tags 
-        ul.tags__list
-          li.tags__item(v-for="tag in tags") {{tags}}
-    .card-work__desc
-      h4.card-work__title {{projects.title}}
-      p.card-work__text {{projects.desc}}
-      a(:href="projects.link").card-work__link {{projects.link}}
-      .card-work__btns
-        button Править 
-        button Удалить
-
-</template>
-
-<script>
-export default {
-  props: {
-    work: {
-      type: Object
-    }
-  },
-  computed: {
-    tags() {
-      return this.work.skills.split(', ')
-    }
-  }
-}
-</script>
-
-<style lang="pcss">
-
   .tags__list {
     display:flex;
   }
@@ -54,7 +20,7 @@ export default {
   .card-work {
     width: 340px;
     background: #fff;
-    filter: drop-shadow(10px)
+    filter: drop-shadow(10px);
 
     &--editing {
       &:before {
@@ -115,5 +81,3 @@ export default {
     display: flex;
     justify-content:space-between;
   }
-
-</style>

@@ -23,10 +23,10 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @click="onApprove"></icon>
+          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', $event)"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="cross" @click="$emit('remove', $event)"></icon>
         </div>
       </div>
     </div>
