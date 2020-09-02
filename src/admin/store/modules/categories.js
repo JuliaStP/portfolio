@@ -6,15 +6,15 @@ export default {
   mutations: {
     SET_CATEGORY: (state, categories) => (state.data = categories),
     ADD_CATEGORY: (state, category) => state.data.unshift(category),
-    EDIT_CATEGORY: (state, categoryToEdit) => {
-      
+    EDIT_CATEGORY: (state, categoryToEdit) => { 
       state.data = state.data.map(category => {
         if (category.id === categoryToEdit.category.id) {
           category.category = categoryToEdit.category.category;
         }
+        return category;
       });
-
     },
+    
     DELETE_CATEGORY: (state, categoryToRemove) => {
       state.data = state.data.filter((category) => {
         return category.id !== categoryToRemove;
@@ -65,15 +65,16 @@ export default {
     async fetch({ commit }) {
       try {
         const { data } = await this.$axios.get('/categories/369')
-        commit('SET_CATEGORY', data)
+        commit('SET_CATEGORY', data);
       } catch (error) {
         console.log(error);
       }
     },
-    async edit({ commit }, categoryToEdit) {
+    async edit({ commit }, newCat) {
       try {
-        const { data } = await this.$axios.post(`/categories/${categoryToEdit.id}`, categoryToEdit)
-        commit('EDIT_CATEGORY', data.category, { root: true })
+        const {id, title} = newCat;
+        const { data } = await this.$axios.post(`/categories/${id}`, { title }) 
+        commit('categories/EDIT_CATEGORY', data.category, { root: true });
       } catch (error) {
         console.log(error);
       }
@@ -81,7 +82,7 @@ export default {
     async remove({ commit }, categoryToRemove) {
       try {
         const { data } = await this.$axios.delete(`/categories/${categoryToRemove}`)
-        commit('DELETE_CATEGORY', categoryToRemove)
+        commit('DELETE_CATEGORY', categoryToRemove);
       } catch (error) {
         console.log(error);
       }

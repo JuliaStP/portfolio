@@ -57,7 +57,7 @@ export default {
       this.isLoginBtnDisabled = true;
 
       try {
-        const response = await $axios.post('/login', this.user);
+        const response = await $axios.post('/refreshToken', this.user);
         const token = response.data.token;
         localStorage.setItem("token", token)
         $axios.defaults.headers['Authorization'] = `Bearer ${token}`;

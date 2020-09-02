@@ -7,12 +7,13 @@
           <iconed-button 
             type="iconed" 
             v-if="emptyCategoryVisible === false" 
-            @click="emptyCategoryVisible = true" 
+            @click="emptyCategoryVisible = true"  
             title="Добавить группу" />
         </div>
         
         <ul class="skills">
-          <li class="item" v-if="emptyCategoryVisible">
+          <li class="item" 
+            v-if="emptyCategoryVisible">
             <category 
               @remove='emptyCategoryVisible = false'
               @approve='createCategory' 
@@ -23,7 +24,7 @@
               :category="category"
               :title="category.category" 
               :skills="category.skills"
-              @edit-category='editCategory(category)'
+              @edit-category='editCategory(category.id, $event)'
               @remove-category ='removeCategory(category.id)'
               @create-skill='createSkill($event, category.id)'
               @edit-skill='editSkill'
@@ -52,6 +53,7 @@ export default {
   data() {
     return {
       emptyCategoryVisible: false,
+      editmode: true
     };
   },
   computed: {
@@ -67,7 +69,8 @@ export default {
       removeCategoryAction: "categories/remove",
       addSkillAction: "skills/add",
       editSkillAction: "skills/edit",
-      removeSkillAction: "skills/remove"
+      removeSkillAction: "skills/remove",
+      showTooltip: 'tooltips/show'
     }),
     async createSkill(skill, categoryId) {
       const newSkill = {
@@ -77,30 +80,57 @@ export default {
       await this.addSkillAction(newSkill);
       skill.title = '';
       skill.percent = '';
+      this.showTooltip({
+          text: 'Навык добавлен',
+          type: "success"
+        });
     },
     async editSkill(skill){
       await this.editSkillAction(skill);
       skill.editMode = false;
+      this.showTooltip({
+          text: 'Навык обнавлен',
+          type: "success"
+        });
     },
     removeSkill(skill){
       this.removeSkillAction(skill);
+      this.showTooltip({
+          text: 'Навык удален',
+          type: "error"
+        });
     },
     async createCategory(categoryTitle) {
       try {
         await this.createCategoryAction(categoryTitle);
         this.emptyCategoryVisible = false;
         category.title = '';
+        this.showTooltip({
+          text: 'Категория добавлена',
+          type: "success"
+        });  
       } catch (error) {
         console.log(error.message);
       }
     },
-    async editCategory(category) {
-      await this.editCategoryAction(category);
-      category.editMode = false;
-      // console.log(category);
+    async editCategory(categoryId, categoryTitle) {
+      const newCat = {
+        id: categoryId,
+        title: categoryTitle,
+      }
+      await this.editCategoryAction(newCat);
+      newCat.editMode = false;
+      this.showTooltip({
+          text: 'Категория обновлена',
+          type: "success"
+        }); 
     },
     removeCategory(categoryId) {
        this.removeCategoryAction(categoryId);
+       this.showTooltip({
+          text: 'Категория удалена',
+          type: "error"
+        }); 
     }
   },
   created() {

@@ -1,15 +1,14 @@
 <template>
   <div class="edit-line-component" :class="{'blocked' : blocked}">
-    <div class="title" v-if="editmode === false">
+    <div class="title" v-if="editMode === false">
       <div class="text">{{value}}</div>
       <div class="icon">
-        <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="pencil" grayscale @click="editMode = true"></icon>
         <icon symbol='trash' class="btn" @click="$emit('remove', $event)" grayscale />
       </div>
     </div>
-    <div v-else class="title">
+    <div class="title" v-else>
       <div class="input">
-        
         <app-input
           placeholder="Название новой группы"
           :value="value"
@@ -23,10 +22,10 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', $event)"></icon>
+          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', editMode = false)"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove', $event)"></icon>
+          <icon symbol="cross" @click="category.editMode = false"></icon>
         </div>
       </div>
     </div>
@@ -36,6 +35,7 @@
 <script>
 
 import{Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
+import { mapActions } from 'vuex';
 
 export default {
   mixins: [ValidatorMixin],
@@ -58,16 +58,21 @@ export default {
   },
   data() {
     return {
-      editmode: this.editmodeDefault,
+      editMode: this.editmodeDefault,
       title: this.value,
-      category: { title: '' }
-    };
+      category: { 
+        title: '',
+        // editMode: false
+       },
+    }
   },
   methods: {
-    onApprove() {
+    async onApprove() {
+      if ((await this.$validate()) === false) 
+      return;
       if (this.value.trim() === "") return false;
       if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
+        this.editMode = false;
       } else {
         this.$emit("approve", this.value);
       }

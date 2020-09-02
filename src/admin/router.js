@@ -6,6 +6,7 @@ import header from './components/header';
 import about from './pages/about';
 import login from './pages/login';
 import projects from './pages/projects';
+import reviews from './pages/reviews';
 
 const routes = [
   {
@@ -27,13 +28,13 @@ const routes = [
       header: header
     }
   },
-  // {
-  //   path: '/reviews',
-  //   components: {
-  //     default: reviews,
-  //     header: header
-  //   }
-  // }
+  {
+    path: '/reviews',
+    components: {
+      default: reviews,
+      header: header
+    }
+  }
 ];
 
 export default new VueRouter({ routes });

@@ -6,7 +6,7 @@
       :editmodeDefault="empty"
       @remove="$emit('remove-category', $event)" 
       @approve="$emit('approve', $event)"
-      @edit-category="$emit('edit-category', $event)"
+      @edit-category="$emit('edit-category', categoryTitle)"
     />
     <template slot='content'>
       <ul class="skills" v-if="empty === false">
