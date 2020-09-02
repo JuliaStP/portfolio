@@ -3,8 +3,8 @@ import "./main.pcss";
 
 addParameters({
   backgrounds: [
-    { name: "white", value: "#ffffff", default: true },
-    { name: "grey", value: "#8395a7" },
+    { name: "white", value: "#ffffff"},
+    { name: "grey", value: "#8395a7", default: true  },
   ],
   darkMode: {
     current: "dark",

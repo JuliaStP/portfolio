@@ -5,11 +5,13 @@ script(type="text/x-template")#slider-container
       .reviews__slider-btns
         button(
           type='button'
-          @click="slide('left')"
+          @click="slide('prev')"
+          :disabled="!buttons.prev"
         ).round-btn.round-btn--left 
         button(
           type='button'
-          @click="slide('right')"
+          @click="slide('next')"
+          :disabled="!buttons.next"
         ).round-btn.round-btn--right 
     swiper(ref="slider" :options="sliderOptions")
       swiper-slide(v-for='review in reviews' :key='review.id')

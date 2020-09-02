@@ -10,6 +10,7 @@
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
+      autofocus
     />
     <div class="input__error-tooltip">
       <tooltip :text="errorMessage"></tooltip>

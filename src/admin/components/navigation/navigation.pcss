@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  color: #414C63;
+}
+
+.link { 
+  position: relative;
+  padding: 30px;
+  display: block;
+  font-weight: 600;
+  
+  &:hover {
+    color: #383BCF;
+
+    &:before {
+      content: '';
+      height: 3px;
+      background: #383BCF;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute; 
+    }
+  }
+}

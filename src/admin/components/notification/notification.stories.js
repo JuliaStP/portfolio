@@ -47,7 +47,7 @@ export const errorView = () => ({
   components: { notification },
   template: `
     <notification
-      text="Текст внутри" 
+      text="Неверный логин или пароль" 
       type="error"
       @click="onClick"
     >

@@ -10,7 +10,7 @@ const skillsItem = {
         getComputedStyle(circle).getPropertyValue('stroke-dasharray')
       );
 
-      const percent = (circleLine / 100) * (100 - this.skill.percentage);
+      const percent = (circleLine / 100) * (100 - this.skill.percent);
 
       circle.style.strokeDashoffset = percent;
     },
