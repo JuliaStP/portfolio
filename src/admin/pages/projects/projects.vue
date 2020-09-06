@@ -1,22 +1,25 @@
 <template lang="pug">
   .works-section
     .container
-      h2.title Блок «Работы»
-    .works-container
-      .container.container--mobile
-        add-work
+      .header
+        h2.title Блок «Работы»
+    .works
+      .container.container--phone
+        add-work(v-if="emptyFormVisible === true" )
         ul.works
           li.works__item
-            button.add-button
+            button.add-button(
+            @click="emptyFormVisible = true")
               .add-button__icon
               .add-button__text Добавить работу
-          li.works__item(v-for="project in projects") 
+          li.works__item(v-for="project in projects" :key='project.id' v-if="emptyFormVisible") 
             card-work(:project='project')
 </template>
 
 <script>
 import addWork from '../../components/addWork';
 import cardWork from '../../components/cardWork';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   components: {
@@ -25,24 +28,23 @@ export default {
   },
   data() {
     return {
-      projects: []
+      emptyFormVisible: false
     }
   },
-  methods : {
-    requirePhotos() {
-      this.projects = this.projects.map(project => {
-        project.img = require(`../../../images/content/${project.img}`);
-        return project
-      })
-    }
+  computed: {
+    ...mapState("projects", {
+      projects: (state) => state.data,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchProjects: "projects/fetch"
+    }),
   },
   mounted() {
-    this.requirePhotos();
+    this.fetchProjects();
   },
-  created() {
-    this.projects = require('../../../data/projects.json')
-  }
-}
+};
   
 </script>
 

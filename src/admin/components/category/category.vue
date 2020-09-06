@@ -1,5 +1,5 @@
 <template>
-  <card slim>
+  <card slim >
     <edit-line 
       slot="title" 
       v-model="categoryTitle" 

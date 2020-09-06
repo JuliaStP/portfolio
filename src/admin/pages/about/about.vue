@@ -17,6 +17,7 @@
             <category 
               @remove='emptyCategoryVisible = false'
               @approve='createCategory' 
+              @cancel="emptyCategoryVisible = false"
               empty />
           </li>
           <li class="item" v-for="category in categories" :key='category.id'>

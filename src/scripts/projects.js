@@ -1,4 +1,5 @@
 import Vue from "vue";
+import axios from 'axios';
 
 const previews = {
   props: ['projects', 'currentProject'],
@@ -25,7 +26,7 @@ const description = {
   components: {tags},
   computed: {
     tagsAll() {
-      return this.currentProject.skills.split(',');
+      return this.currentProject.techs.split(',');
     }
   }
 }
@@ -95,4 +96,13 @@ new Vue({
     const data = require('../data/projects.json');
     this.projects = this.getImages(data);
   }
+
+  // async created() {
+  //   try {
+  //     const response = await axios.get('https://webdev-api.loftschool.com/works/369');
+  //     this.projects = response.data;
+  //   } catch(error) {
+  //     console.log('ошибка')
+  //   }
+  // }
 })

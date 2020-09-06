@@ -1,0 +1,92 @@
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
+.review-work {
+  display: flex;
+  flex-direction: column;
+  justify-content:  space-between;
+  height: 100%; 
+  background: #FFFFFF;
+  padding: 30px 55px 30px 30px;
+}
+
+.review-header {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100px;
+}
+
+.user-display__avatar-wrapper {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-display__pic {
+  max-height: none;
+}
+
+.user-display__avatar {
+  margin-right: 30px;
+}
+
+.user-display__name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.user-display__occ {
+  opacity: 0.3;
+}
+
+.review-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(65, 76, 99, 0.7);
+  height: 50%;
+
+  @include phones {
+    margin-bottom: 30px;
+  }
+}
+
+.card-work__btns{
+  display: flex;
+  justify-content:space-between;
+}
+
+.pencil {
+  color: rgba(65, 76, 99, 0.5);
+  position: relative;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    right: -20%;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(../../../images/icons/pencil.svg) contain no-repeat;
+  }
+}
+
+.cross {
+  color: rgba(65, 76, 99, 0.5);
+  position: relative;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    right: -20%;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(../../../images/icons/cross.svg) contain no-repeat;
+  }
+}

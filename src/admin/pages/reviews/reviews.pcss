@@ -1,0 +1,146 @@
+@mixin tablets() {
+  @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 60px 0 20px;
+  background: url('../../../images/content/bg-admin.png') center center / cover no-repeat;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 60px;
+
+  @include phones {
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 29px;
+  margin-right: 60px;
+
+  @include phones {
+    margin-bottom: 30px;
+  }
+}
+
+.container--phone {
+  
+  @include phones {
+    max-width: 100%;
+    width: 100%;
+    margin:0;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.reviews__item {
+  width: 32%;
+  min-height: 485px;
+  margin-bottom: 30px;
+
+  @include tablets {
+    width: 48%;
+  }
+
+  @include phones {
+    width: 100%;
+    min-height: 110px;
+  }
+}
+
+.add-button {
+  background: linear-gradient(149.16deg, #0D5EE5 13.11%, #343DD0 84.24%);
+  width: 100%;
+  height: 100%;
+  min-width: 340px;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @include phones {
+    flex-direction: row;
+  }
+}
+
+.add-button__text {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+    max-width: 93px;
+
+    @include phones {
+      max-width: initial;
+    }
+  }
+
+.add-button__icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  margin-bottom: 23px;
+  position: relative;
+
+  @include phones {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #FFFFFF;
+    margin-bottom: 0;
+    margin-right: 21px;
+  }
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 33px;
+    height: 3px;
+    background: #fff;
+    display: flex;
+
+    @include phones {
+      width: 11px;
+      height: 1px;
+    }
+  } 
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(90deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    width: 33px;
+    height: 3px;
+    background: #fff;
+    display: flex;
+
+    @include phones {
+      width: 11px;
+      height: 1px;
+    }
+  }
+}

@@ -5,16 +5,29 @@
         <div class="header">
           <h2 class="title">Блок «Отзывы»</h2>
         </div>
+      </div>
+      <div class="container container--phone">
+        <add-review 
+          :emptyFormVisible="empty"
+          v-if="emptyFormVisible"
+          @cancel="emptyFormVisible = false"
+          @edit='editMode = true'
+          />
         <div class="reviews-wrapper">
-          <ul class="reviews">
-            <li class="reviews__item">
+          <ul class="reviews" v-if="empty === false">
+            <li class="reviews__item"
+                @click="emptyFormVisible = true">
               <button class="add-button">
                 <div class="add-button__icon"></div>
                 <div class="add-button__text">Добавить работу</div>
               </button>
             </li>
-            <li class="reviews__item" (v-for="review in reviews" )>
-              <card-work ( :review='review' ) />
+            <li class="reviews__item" v-for="review in reviews" :key="review.id" >
+              <review-work 
+                
+                :review='review' 
+                @remove-review='removeReview(review.id)'
+                @edit-review="editReview(review.id, $event)" />
             </li>
           </ul>
         </div>
@@ -25,11 +38,52 @@
 
 <script>
 
-import cardWork from '../../components/cardWork';
+import reviewWork from '../../components/reviewWork';
+import addReview from '../../components/addReview';
+import { mapActions, mapState } from 'vuex';
 
 export default {
+  props: {
+    empty: Boolean
+  },
   components: {
-    cardWork
+    reviewWork,
+    addReview
+  },
+  data() {
+    return {
+      emptyFormVisible: false,
+      editMode: true
+    }
+  },
+  computed: {
+    ...mapState("reviews", {
+      reviews: (state) => state.data,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchReviewsAction: "reviews/fetch",
+      removeReviewAction: "reviews/remove",
+      editReviewAction: "reviews/edit"
+    }),
+    removeReview(reviewId) {
+      this.removeReviewAction(reviewId);
+    },
+    async editReview(reviewId, reviewAuth, reviewOcc, reviewText) {
+      const editedReview = {
+        id: reviewId,
+        author: reviewAuth,
+        occ: reviewOcc,
+        text: reviewText
+      }
+      await this.editReviewAction(editedReview);
+      editedReview.editMode = true;
+      console.log('hey');
+    }    
+  },
+  mounted() {
+    this.fetchReviewsAction();
   },
 }
 </script>

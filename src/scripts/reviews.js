@@ -1,6 +1,7 @@
 import Vue from "vue";
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
+import axios from 'axios';
 
 new Vue({
   el: '#slider-component',
@@ -32,13 +33,21 @@ new Vue({
     }
   },
   methods: {
-    requireImg(data) {
-      return data.map((item) => {
-        const requiredImg = require(`../images/content/${item.img}`)
-          .default;
-        item.img = requiredImg;
+    // requireImg(data) {
+    //   return data.map((item) => {
+    //     const requiredImg = require(`../images/content/${item.img}`)
+    //       .default;
+    //     item.img = requiredImg;
+    //     return item;
+    //   });
+    // },
+    changeImagePath(reviews) {
+      reviews.map((item) => {
+        let newPath = `https://webdev-api.loftschool.com/${item.photo}`
+        item.photo = newPath;
         return item;
       });
+      return reviews;
     },
     slide(direction) {
       switch(direction) {
@@ -57,8 +66,12 @@ new Vue({
       this.buttons.next = !swiper.isEnd;
     });
   },
-  created() {
-    const data = require('../data/reviews.json');
-    this.reviews = this.requireImg(data)
-  },
+  async created() {
+    try {
+      const { data } = await axios.get('/reviews/369');
+      this.reviews = this.changeImagePath(data)
+    } catch(error) {
+      console.log('ошибка')
+    }
+  } 
 });
