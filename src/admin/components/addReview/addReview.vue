@@ -14,16 +14,16 @@
       </div>
       <div class="review">
         <div class="review__row">
-          <app-input no-side-paddings="no-side-paddings" :value="value" class="review__input" title="Имя автора" v-model="newReview.author"></app-input>
-          <app-input no-side-paddings="no-side-paddings" :value="value" class="review__input" title="Титул автора" v-model="newReview.occ"></app-input>
+          <app-input @input="$emit('input', $event)" no-side-paddings="no-side-paddings" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" class="review__input" title="Имя автора" v-model="newReview.author" :errorMessage="validation.firstError('newReview.author')"></app-input>
+          <app-input @input="$emit('input', $event)" no-side-paddings="no-side-paddings" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" class="review__input" title="Титул автора" v-model="newReview.occ" :errorMessage="validation.firstError('newReview.occ')"></app-input>
         </div>
         <div class="review__row">
-          <app-input :value="value" no-side-paddings="no-side-paddings" class="review__textarea" title="Отзыв" fieldType="textarea" v-model="newReview.text"></app-input>
+          <app-input @input="$emit('input', $event)" :value="value" no-side-paddings="no-side-paddings" @keydown.native.enter="onApprove" :errorText="errorText" class="review__textarea" title="Отзыв" fieldType="textarea" v-model="newReview.text" :errorMessage="validation.firstError('newReview.text')"></app-input>
         </div>
         <div class="review__row">
           <div class="review__btns">
-            <button class="cancel" title='Отмена' @click="$emit('cancel')">Отмена</button>
-            <app-button title='Сохранить' @click="$emit('edit-review', editMode = false)"/>
+            <button type="reset" class="cancel" title='Отмена' @click="$emit('cancel')">Отмена</button>
+            <app-button title='Сохранить' @enter="onApprove" @click="$emit('edit-review', editMode = false)"/>
 
           </div>
         </div>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+
+import{Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
 
 import appInput from '../../components/input';
 import appButton from '../../components/button';
@@ -45,12 +47,28 @@ export default {
     appInput,
     icon
   },
-  props: {
-      value: {
-      type: String,
-      default: ""
+  mixins: [ValidatorMixin],
+  validators: {
+    'newReview.author': value => {
+      return Validator.value(value).required('Введите автора отзыва');
     },
-    emptyFormVisible: Boolean
+    'newReview.occ': value => {
+      return Validator.value(value).required('Введите должность автора');
+    },
+    'newReview.text': value => {
+      return Validator.value(value).required('Введите отзыв');
+    }  
+  },
+  props: {
+    value: {
+    type: String,
+    default: ""
+  },
+    errorText: {
+    type: String,
+    default: ""
+  },
+    emptyFormVisible: Boolean,
   },
   data() {
     return {
@@ -67,11 +85,38 @@ export default {
   },
   methods: {
     ...mapActions({
+      showTooltip: 'tooltips/show',
       addNewReview: "reviews/add"
     }),
+    async onApprove() {
+      if ((await this.$validate()) === false) 
+      return;
+      if (this.value.trim() === "") return false;
+      if (this.title.trim() === this.value.trim()) {
+        this.editMode = false;
+      } else {
+        this.$emit("approve", this.value);
+      }
+    },
     async handleSubmit() {
-      await this.addNewReview(this.newReview);
-      this.editMode = false;
+      try {
+        await this.addNewReview(this.newReview);
+        this.editMode = false;
+        newReview.author = '';
+        newReview.occ = '';
+        newReview.text = '';
+        this.showTooltip({
+          text: 'Отзыв добавлен',
+          type: "success"
+        });
+      } catch (error) {
+        console.log(error.message);
+        // this.showTooltip({
+        //   text: 'Заполните указанные поля',
+        //   type: "error"
+        // });
+      }
+      
     },
     handleChange(event) {
       event.preventDefault(); 
@@ -86,7 +131,25 @@ export default {
       reader.readAsDataURL(file);
       reader.onloadend = () => {
         this.newReview.preview = reader.result;
-      };    
+        this.showTooltip({
+          text: 'Аватар добавлен',
+          type: "success"
+        });        
+      };
+      
+      reader.onerror = () => {
+        this.showTooltip({
+          text: 'Аватар не добавлен',
+          type: "error"
+        });
+      }
+
+      reader.onabort = () => {
+        this.showTooltip({
+          text: 'Аватар добавлен',
+          type: "success"
+        });
+      }
     },
     handleDragOver(e) {
         e.preventDefault();

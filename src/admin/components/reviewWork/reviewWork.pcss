@@ -11,12 +11,20 @@
   height: 100%; 
   background: #FFFFFF;
   padding: 30px 55px 30px 30px;
+
+  @include phones {
+   padding-right: 20px;
+  }
 }
 
 .review-header {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   height: 100px;
+
+  @include phones {
+    margin-bottom: 25px;
+  }
 }
 
 .user-display__avatar-wrapper {
@@ -53,6 +61,7 @@
 
   @include phones {
     margin-bottom: 30px;
+
   }
 }
 

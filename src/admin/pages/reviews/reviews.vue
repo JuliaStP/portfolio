@@ -16,7 +16,9 @@
         <div class="reviews-wrapper">
           <ul class="reviews" v-if="empty === false">
             <li class="reviews__item"
-                @click="emptyFormVisible = true">
+                @click="emptyFormVisible = true"
+                @handleSubmit="emptyFormVisible = false"
+                >
               <button class="add-button">
                 <div class="add-button__icon"></div>
                 <div class="add-button__text">Добавить работу</div>
@@ -24,7 +26,6 @@
             </li>
             <li class="reviews__item" v-for="review in reviews" :key="review.id" >
               <review-work 
-                
                 :review='review' 
                 @remove-review='removeReview(review.id)'
                 @edit-review="editReview(review.id, $event)" />
@@ -63,12 +64,17 @@ export default {
   },
   methods: {
     ...mapActions({
+      showTooltip: 'tooltips/show',
       fetchReviewsAction: "reviews/fetch",
       removeReviewAction: "reviews/remove",
       editReviewAction: "reviews/edit"
     }),
     removeReview(reviewId) {
       this.removeReviewAction(reviewId);
+      this.showTooltip({
+        text: 'Отзыв удален',
+        type: "error"
+      });
     },
     async editReview(reviewId, reviewAuth, reviewOcc, reviewText) {
       const editedReview = {
@@ -79,6 +85,10 @@ export default {
       }
       await this.editReviewAction(editedReview);
       editedReview.editMode = true;
+      this.showTooltip({
+        text: 'Отзыв обновлен',
+        type: "succeess"
+      });
       console.log('hey');
     }    
   },

@@ -14,6 +14,10 @@
   flex: 1;
   padding: 60px 0 20px;
   background: url('../../../images/content/bg-admin.png') center center / cover no-repeat;
+
+ @include phones {
+   padding-top: 40px;
+ }
 }
 
 .header {
@@ -22,6 +26,7 @@
 
   @include phones {
     flex-direction: column;
+    margin-bottom: 20px;
   }
 }
 
@@ -48,21 +53,38 @@
 .reviews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .reviews__item {
   width: 32%;
   min-height: 485px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
+  margin-right: 29px;
+
+  &:nth-child(3n+3) {
+    margin-right: 0;
+  }
 
   @include tablets {
     width: 48%;
+
+    &:nth-child(3n+3) {
+      margin-right: 29px;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
   }
 
   @include phones {
     width: 100%;
     min-height: 110px;
+    margin-right: 0;
+
+    &:nth-child(3n+3) {
+      margin-right: 0;
+    }
   }
 }
 

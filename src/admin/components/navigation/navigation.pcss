@@ -1,3 +1,9 @@
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
 .list {
   display: flex;
   color: #414C63;
@@ -8,6 +14,10 @@
   padding: 30px;
   display: block;
   font-weight: 600;
+
+  @include phones {
+    padding: 30px 17px;
+  }
   
   &:hover {
     color: #383BCF;

@@ -7,7 +7,7 @@ export default {
     ADD_REVIEW(state, newReview) {
       state.data.push(newReview);
     },
-    SET__REVIEWS(state, reviews) {
+    SET_REVIEWS(state, reviews) {
       state.data = reviews;
     },
     EDIT_REVIEW(state, reviewToEdit){

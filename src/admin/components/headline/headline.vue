@@ -4,7 +4,7 @@
       <slot />
         <h4 class="title">{{title}}</h4>
         <div class="buttons">
-          <button type='button' class='btn' @click="logout">Выйти</button>
+          <button type='button' class='headline__btn' @click="logout">Выйти</button>
         </div>
     </div>
   </div>

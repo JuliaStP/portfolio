@@ -5,15 +5,27 @@
         h2.title Блок «Работы»
     .works
       .container.container--phone
-        add-work(v-if="emptyFormVisible === true" )
+        add-work(
+          v-if="emptyFormVisible"
+          @cancel="emptyFormVisible = false"
+          @handleSubmit="emptyFormVisible = false"
+          
+          :currentProject='currentProject'
+          )
         ul.works
           li.works__item
             button.add-button(
             @click="emptyFormVisible = true")
               .add-button__icon
               .add-button__text Добавить работу
-          li.works__item(v-for="project in projects" :key='project.id' v-if="emptyFormVisible") 
-            card-work(:project='project')
+          li.works__item(v-for="project in projects" :key='project.id') 
+            card-work(
+              :project='project'
+              :currentProject='currentProject'
+              @remove-project='removeProject(project.id)'
+              @open-project='openProject(currentProject)'
+              @edit-project='editProject(currentProject.id)'
+              )
 </template>
 
 <script>
@@ -22,13 +34,31 @@ import cardWork from '../../components/cardWork';
 import { mapActions, mapState } from 'vuex';
 
 export default {
+  props: {
+    project: {
+      type: Object,
+      default: () => {}
+    },
+    currentProject: {
+      type: Object
+    },
+    // currentProject: {
+    //   type: Object,
+    //   default: () => {}
+    // },
+    value: {
+    type: String,
+    default: ""
+    },
+  },
   components: {
     cardWork,
     addWork
   },
   data() {
     return {
-      emptyFormVisible: false
+      emptyFormVisible: false,
+      editMode: false,
     }
   },
   computed: {
@@ -38,8 +68,36 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchProjects: "projects/fetch"
+      showTooltip: 'tooltips/show',
+      fetchProjects: "projects/fetch",
+      removeProjectAction: "projects/remove",
+      editProjectAction:'projects/edit'
     }),
+
+    removeProject(projectId) {
+      this.removeProjectAction(projectId);
+      this.showTooltip({
+        text: 'Проект удален',
+        type: "error"
+      });
+    },
+    openProject(currentProjectId) {
+      this.emptyFormVisible = true;
+
+      console.log('hey');
+    },
+    async editProject(currentProjectId, currentProjectTitle, currentProjectLink, currentProjectDescription, currentProjectText) {
+      const newPro = {
+        id: projectId,
+        title: projectTitle,
+        link: projectLink,
+        description: projectDescription,
+        text: projectText,
+      }
+      await this.editProjectAction(newPro);
+      
+      
+    }
   },
   mounted() {
     this.fetchProjects();
