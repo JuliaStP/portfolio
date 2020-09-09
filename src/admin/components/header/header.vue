@@ -1,5 +1,6 @@
 <template>
   <div class="header-component">
+  <router-view name="header"/>
     <headline title="Панель администрирования">
       <user /> 
     </headline>

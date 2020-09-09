@@ -1,3 +1,9 @@
+@mixin phones() {
+  @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
 .login-component {
   display: flex;
   justify-content: center;
@@ -15,6 +21,10 @@
   display: flex;
   align-items: center;
   justify-content: center; 
+
+  @include phones {
+    height: 100%;
+  }
 }
 
 .form {
@@ -23,6 +33,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include phones {
+    height: 100%;
+  }
 }
 
 .popup-title {

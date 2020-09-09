@@ -1,7 +1,7 @@
 <template>
   <div class="about-component">  
     <div class="main-content">
-      <div class="container" v-if="categories.length">
+      <div class="container" >
         <div class="header">
           <h2 class="title">Блок «Обо мне»</h2>
           <iconed-button 
@@ -10,12 +10,14 @@
             @click="emptyCategoryVisible = true"  
             title="Добавить группу" />
         </div>
-        
+      </div>
+      <div class="container container--phone" v-if="categories.length">
         <ul class="skills">
           <li class="item" 
-            v-if="emptyCategoryVisible">
+            v-if="emptyCategoryVisible" :category="category">
             <category 
-              @remove='emptyCategoryVisible = false'
+              :category="category"
+              @remove-category ='emptyCategoryVisible = false'
               @approve='createCategory' 
               empty />
           </li>

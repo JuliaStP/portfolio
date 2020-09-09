@@ -3,7 +3,7 @@
     <app-input 
       title="Добавление тега" 
       v-model="currentTags"
-      @input="$emit('change-tags', currentTags)"
+      @input="$emit('change', currentTags)"
     />
     <ul class="tags">
       <li class="tag"
@@ -33,13 +33,12 @@ export default {
   },
   props: {
     tags: {
-      type: String, 
-      default: ""
+      type: String,
     }
   },
   model: {
     prop: "tags",
-    event: "changeTags"
+    event: "change"
   },
   data() {
     return {
@@ -48,17 +47,20 @@ export default {
   },
   computed: {
     tagsArray() {
-      return this.currentTags.trim().split(',');
+      return this.tags.split(',');
     }
   },
   methods: {
     removeTag(tag) {
       const tags = [...this.tagsArray];
       const tagIndex = tags.indexOf(tag);
+
       if (tagIndex < 0) return;
+
       tags.splice(tagIndex, 1);
       this.currentTags = tags.join(", ");
-      this.$emit("changeTags", this.currentTags);
+
+      this.$emit("change", this.currentTags);
     }
   }
 };
