@@ -46,8 +46,8 @@ router.beforeEach(async (to, from, next) => {
   const isPublicRoute = to.matched.some(route => route.meta.public);
   const isUserLoggedIn = store.getters["user/userIsLoggedIn"];
 
-  next();
-  return;
+  // next();
+  // return;
 
   if (isPublicRoute === false && isUserLoggedIn === false) {
     const token = localStorage.getItem("token");
@@ -68,62 +68,3 @@ router.beforeEach(async (to, from, next) => {
 });
 
 export default router;
-
-// import header from './components/header';
-// import about from './pages/about';
-// import login from './pages/login';
-// import projects from './pages/projects';
-// import reviews from './pages/reviews';
-
-// const routes = [
-//   {
-//     path: '/',
-//     components: {
-//       default: about,
-//       header: header,
-//     }, 
-//   },
-//   {
-//     path: '/login',
-//     component: login,
-//     meta: { public: true }
-//   },
-//   {
-//     path: '/projects',
-//     components: {
-//       default: projects,
-//       header: header
-//     }
-//   },
-//   {
-//     path: '/reviews',
-//     components: {
-//       default: reviews,
-//       header: header
-//     }
-//   }
-// ];
-
-// export default new VueRouter({ routes });
-
-// export const router = new VueRouter({ routes });
-
-// const baseURL = "https://webdev-api.loftschool.com/"; 
-// const guard = axios.create({baseURL});
-// router.beforeEach(async (to, from, next) => {
-//   const isPublicRoute = to.matched.some(record => record.meta.public);
-//   const token = localStorage.getItem('token');
-//   if(!isPublicRoute && !token) {
-//     guard.defaults.headers['Authorization'] = `Bearer ${token}`;
-//     try {
-//       const response = await guard.get('/user');
-//       localStorage.setItem('token', token)
-//       next();
-//     } catch (error) {
-//       console.error('you need to login');
-//       router.replace('/');
-//     }
-//   } else {
-//     next();
-//   }
-// });

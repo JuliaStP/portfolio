@@ -12,10 +12,7 @@ export default {
     },
     EDIT_REVIEW(state, reviewToEdit){
       state.data = state.data.map(review => {
-        if (review.id === reviewToEdit.review.id) {
-          review = reviewToEdit.review;
-        }
-        return review;
+        return review.id === reviewToEdit.review.id ? reviewToEdit.review : review;
       })
     },
     REMOVE_REVIEW(state, reviewToRemove) {

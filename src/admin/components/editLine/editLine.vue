@@ -22,7 +22,7 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', editMode = false)"></icon>
+          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', category.editMode = false)"></icon>
         </div>
         <div class="button-icon">
           <icon symbol="cross" @click="editMode = false"></icon>

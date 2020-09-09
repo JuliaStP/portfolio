@@ -1,27 +1,7 @@
 <template lang="pug">
   .add-work(v-if="emptyFormVisible" )
     h3.add-work__title Редактирование работы
-    form.form(v-if="currentProject.editMode === true")
-      .col
-        .upload(
-          :style='{backgroundImage: `url(${currentProject.preview})`}'
-          :class="[{active:currentProject.preview}, {hovered: hovered}]"
-          @dragover='handleDragOver'
-          @dragleave='hovered = false'
-          @drop='handleChange'
-          )
-          .add-work__text Перетащите или загрузите для загрузки изображения
-          app-button(title='Загрузить' plain typeAttr="file" @change='handleChange') 
-      .col
-        .form-inputs
-          app-input(title='Название').add-work__input {{ value }}
-          app-input(title='Ссылка').link.add-work__input {{ value }}
-          app-input(title='Описание' ).description.add-work__input {{ value }}
-          add-tags(title='Добавление тэга').add-work__input {{ value }}
-        .form-btns
-          button(type="button" title='Отмена' @click="$emit('cancel')").btn.plain Отмена
-          button(title='Сохранить' v-on="$listeners" typeAttr="submit" @enter="onApprove" @click="$emit('edit-project', currentProject)").btn Сохранить
-    
+
     form.form(@submit.prevent='handleSubmit' v-if="editMode = true")
       .col
         .upload(
@@ -35,13 +15,13 @@
           app-button(title='Загрузить' plain typeAttr="file" @change='handleChange') 
       .col
         .form-inputs
-          app-input(title='Название' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.title" :errorMessage="validation.firstError('currentProject.title')").add-work__input {{value}}
-          app-input(title='Ссылка' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.link" :errorMessage="validation.firstError('currentProject.link')").link.add-work__input {{value}}
-          app-input(title='Описание' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" fieldType="textarea" v-model="currentProject.description" :errorMessage="validation.firstError('currentProject.description')").description.add-work__input {{value}}
-          add-tags(title='Добавление тэга' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.techs" :errorMessage="validation.firstError('currentProject.techs')").add-work__input {{value}}
+          app-input(title='Название' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.title" :errorMessage="validation.firstError('currentProject.title')").add-work__input 
+          app-input(title='Ссылка' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.link" :errorMessage="validation.firstError('currentProject.link')").link.add-work__input 
+          app-input(title='Описание' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" fieldType="textarea" v-model="currentProject.description" :errorMessage="validation.firstError('currentProject.description')").description.add-work__input 
+          add-tags(title='Добавление тэга' @input="$emit('input', $event)" @keydown.native.enter="onApprove" :errorText="errorText" :value="value" v-model="currentProject.techs" :errorMessage="validation.firstError('currentProject.techs')").add-work__input 
         .form-btns
           button(type="button" title='Отмена' @click="$emit('cancel')").btn.plain Отмена
-          button(title='Сохранить' v-on="$listeners" typeAttr="submit" @enter="onApprove" @click="onApprove").btn Сохранить
+          button(title='Обновить' v-on="$listeners" typeAttr="submit" @enter="onApprove").btn Сохранить
 </template>
 
 <script>
@@ -73,10 +53,6 @@ export default {
     type: String,
     default: ""
    },
-  //   currentProject: {
-  //   type: Object,
-  //   default: () => {}
-  // },
     errorText: {
     type: String,
     default: ""

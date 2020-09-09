@@ -28,7 +28,8 @@
               <review-work 
                 :review='review' 
                 @remove-review='removeReview(review.id)'
-                @edit-review="editReview(review.id, $event)" />
+                @edit-review="editReview(review.id, $event)"
+                @open-review="openReview(review)" />
             </li>
           </ul>
         </div>
@@ -45,7 +46,12 @@ import { mapActions, mapState } from 'vuex';
 
 export default {
   props: {
-    empty: Boolean
+    empty: Boolean,
+    currentReview: Object,
+    review: {
+      type: Object,
+      default: () => {}
+    }
   },
   components: {
     reviewWork,
@@ -67,8 +73,12 @@ export default {
       showTooltip: 'tooltips/show',
       fetchReviewsAction: "reviews/fetch",
       removeReviewAction: "reviews/remove",
-      editReviewAction: "reviews/edit"
+      editReviewAction: "reviews/edit",
     }),
+    openReview(review) {
+      this.emptyFormVisible = true;
+      console.log(review);
+    },
     removeReview(reviewId) {
       this.removeReviewAction(reviewId);
       this.showTooltip({

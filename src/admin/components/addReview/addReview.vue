@@ -42,6 +42,9 @@ import icon from "../icon";
 import { mapActions } from 'vuex';
 
 export default {
+  props: {
+    currentReview: Object
+  },
   components: {
     appButton,
     appInput,

@@ -9,7 +9,7 @@
         .user-display__occ {{review.occ}}
     .review-text {{review.text}}
     .card-work__btns
-      icon(symbol="pencil" title="Править" @click="$emit('edit', $event)")  
+      icon(symbol="pencil" title="Править" @click="$emit('open-review', $event)")  
       icon(symbol="cross" title="Удалить" @click="$emit('remove-review', $event)")
 </template>
 

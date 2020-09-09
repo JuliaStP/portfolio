@@ -14,9 +14,10 @@
       <div class="container container--phone" v-if="categories.length">
         <ul class="skills">
           <li class="item" 
-            v-if="emptyCategoryVisible">
+            v-if="emptyCategoryVisible" :category="category">
             <category 
-              @remove='emptyCategoryVisible = false'
+              :category="category"
+              @remove-category ='emptyCategoryVisible = false'
               @approve='createCategory' 
               empty />
           </li>

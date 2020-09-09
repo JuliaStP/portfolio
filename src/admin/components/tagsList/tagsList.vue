@@ -11,7 +11,7 @@
   export default {
     components: {tag},
     props: {
-      tags: String
+      tags: String,
     },
     computed: {
       tagsArray() {

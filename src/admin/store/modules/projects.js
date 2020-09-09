@@ -12,10 +12,7 @@ export default {
     },
     EDIT_PROJECT(state, projectToEdit){
       state.data = state.data.map(project => {
-        if (project.id === projectToEdit.project.id) {
-          project = projectToEdit.project;
-        }
-        return project;
+        return project.id === projectToEdit.project.id ? projectToEdit.project : project;
       })
     },
     REMOVE_PROJECT(state, projectToRemove) {
@@ -50,13 +47,18 @@ export default {
       }
     },
 
-    async edit({ commit }, newPro) {
+    async edit({ commit }, newProject) {
+      const formData = new FormData();
+
+      Object.keys(newProject).forEach(item => {
+        formData.append(item, newProject[item]);
+      })
+
       try {
-        const {id, title, link, description, text} = newPro;
-        const { data } = await this.$axios.post(`/works/${id}`, { title, link, description, text });
-        commit('EDIT_PROJECT', data)
+        const { data } = await this.$axios.post(`/works${id}`, formData);
+        commit('EDIT_PROJECT', data);
       } catch (error) {
-        throw new Error("Произошла ошибка!")
+        console.log('error');
       }
     },
     

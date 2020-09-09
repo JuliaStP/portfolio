@@ -5,27 +5,28 @@
         h2.title Блок «Работы»
     .works
       .container.container--phone
-        add-work(
-          v-if="emptyFormVisible"
-          @cancel="emptyFormVisible = false"
-          @handleSubmit="emptyFormVisible = false"
-          
-          :currentProject='currentProject'
-          )
-        ul.works
-          li.works__item
-            button.add-button(
-            @click="emptyFormVisible = true")
-              .add-button__icon
-              .add-button__text Добавить работу
-          li.works__item(v-for="project in projects" :key='project.id') 
-            card-work(
-              :project='project'
-              :currentProject='currentProject'
-              @remove-project='removeProject(project.id)'
-              @open-project='openProject(currentProject)'
-              @edit-project='editProject(currentProject.id)'
-              )
+        .project-row(v-if="emptyFormVisible")
+          add-work(
+            :project='project'
+            :currentProject='currentProject'
+            @cancel="emptyFormVisible = false"
+            @handleSubmit="emptyFormVisible = false"
+            )
+        .project-row
+          ul.works
+            li.works__item
+              button.add-button(
+              @click="emptyFormVisible = true")
+                .add-button__icon
+                .add-button__text Добавить работу
+            li.works__item(v-for="project in projects" :key='project.id') 
+              card-work(
+                :project='project'
+                :currentProject='currentProject'
+                @remove-project='removeProject(project.id)'
+                @open-project='openProject(project)'
+                @edit-project='editProject(project.id)'
+                )
 </template>
 
 <script>
@@ -42,14 +43,6 @@ export default {
     currentProject: {
       type: Object
     },
-    // currentProject: {
-    //   type: Object,
-    //   default: () => {}
-    // },
-    value: {
-    type: String,
-    default: ""
-    },
   },
   components: {
     cardWork,
@@ -59,6 +52,13 @@ export default {
     return {
       emptyFormVisible: false,
       editMode: false,
+      // project: {
+      //   title: '',
+      //   link: '',
+      //   description: '',
+      //   techs: '',
+      //   photo: ''
+      // }
     }
   },
   computed: {
@@ -71,7 +71,7 @@ export default {
       showTooltip: 'tooltips/show',
       fetchProjects: "projects/fetch",
       removeProjectAction: "projects/remove",
-      editProjectAction:'projects/edit'
+      editProjectAction: "projects/edit"
     }),
 
     removeProject(projectId) {
@@ -81,12 +81,12 @@ export default {
         type: "error"
       });
     },
-    openProject(currentProjectId) {
+    openProject(projectId) {
       this.emptyFormVisible = true;
 
-      console.log('hey');
+      console.log(projectId);
     },
-    async editProject(currentProjectId, currentProjectTitle, currentProjectLink, currentProjectDescription, currentProjectText) {
+    async editProject(projectId, projectTitle, projectLink, projectDescription, projectText) {
       const newPro = {
         id: projectId,
         title: projectTitle,
@@ -95,8 +95,6 @@ export default {
         text: projectText,
       }
       await this.editProjectAction(newPro);
-      
-      
     }
   },
   mounted() {

@@ -9,9 +9,10 @@
       <li class="tag"
         v-for="(tag, index) in tagsArray"
         :key="`${tag}${index}`"
-        v-if="tag.trim()"
+        
       >
         <tag
+          v-if="tag.trim()"
           interactive 
           :title="tag"
           @click="removeTag(tag)"
@@ -32,8 +33,7 @@ export default {
   },
   props: {
     tags: {
-      type: String, 
-      default: ""
+      type: String,
     }
   },
   model: {
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     tagsArray() {
-      return this.tags.trim().split(',');
+      return this.tags.split(',');
     }
   },
   methods: {
