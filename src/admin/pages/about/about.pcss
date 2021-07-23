@@ -1,3 +1,9 @@
+@mixin tablets() {
+  @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
 @mixin phones() {
   @media screen and (max-width: $bp-phones) {
     @content;
@@ -8,6 +14,14 @@
   flex: 1;
   padding: 60px 0 20px;
   background: url('../../../images/content/bg-admin.png') center center / cover no-repeat;
+
+  @include tablets {
+    height: 100vh;
+  }
+
+  @include phones {
+    height: 100%;
+  }
 }
 
 .header {
@@ -27,6 +41,15 @@
 
   @include phones {
     margin-bottom: 30px;
+  }
+}
+
+.container--phone {
+  
+  @include phones {
+    max-width: 100%;
+    width: 100%;
+    margin:0;
   }
 }
 
