@@ -18,14 +18,9 @@
   }
   
   .card-work {
-    display: flex;
-    flex-direction: column;
-    justify-content:  space-between;
-    height: 100%; 
-    /* width: 340px; */
+    width: 340px;
     background: #fff;
     filter: drop-shadow(10px);
-    padding: 0px 0px 20px 0px;
 
     &--editing {
       &:before {
@@ -53,18 +48,14 @@
   }
   
   .card-work__desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 34px 34px 15px 34px;
-    height: 100%;
+    padding: 34px 34px 44px 34px;
   }
 
   .card-work__title {
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 6px;
-    color: #414C63;
+    color: grey;
     line-height: 25px;
   }
 
@@ -72,7 +63,7 @@
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 26px;
-    color: rgba(65, 76, 99, 0.5);
+    color: grey;
     line-height: 30px;
   }
 
@@ -83,41 +74,10 @@
     display: inline-flex;
     align-items: center;
     margin-bottom: 41px;
-    color: #383BCF;
-  }   
+  }
 
 
-.card-work__btns{
-  display: flex;
-  justify-content:space-between;
-}
-
-.pencil {
-color: rgba(65, 76, 99, 0.5);
-position: relative;
-
-&:before {
-  position: absolute;
-  bottom: 0;
-  right: -20%;
-  content: '';
-  width: 15px;
-  height: 15px;
-  background: url(../../../images/icons/pencil.svg) contain no-repeat;
-}
-}
-
-.cross {
-color: rgba(65, 76, 99, 0.5);
-position: relative;
-
-&:before {
-  position: absolute;
-  bottom: 0;
-  right: -20%;
-  content: '';
-  width: 15px;
-  height: 15px;
-  background: url(../../../images/icons/cross.svg) contain no-repeat;
-}
-}
+  .card-work__btns{
+    display: flex;
+    justify-content:space-between;
+  }

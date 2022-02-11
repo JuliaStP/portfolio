@@ -20,11 +20,11 @@ script(type="text/x-template")#slider-container
             +icon('quote', 'quote__img', alt='quite icon') 
           .quote__info
             .quote__text
-              p {{review.text}}
+              p {{review.quote}}
             .quote__user 
               .user-display__avatar
                 .user-display__avatar-wrapper
-                  img(:src="review.photo", alt="user avatar").user-display__pic
+                  img(:src="review.img", alt="user avatar").user-display__pic
               .user-display__data
-                .user-display__name {{review.author}}
+                .user-display__name {{review.name}}
                 .user-display__occ {{review.occ}}

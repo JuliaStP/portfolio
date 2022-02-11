@@ -1,7 +1,6 @@
 <template>
-  <card slim :simple="false">
+  <card slim>
     <edit-line 
-      :blocked="false"
       slot="title" 
       v-model="categoryTitle" 
       :editmodeDefault="empty"
@@ -41,7 +40,6 @@ export default {
     addLine
   },
   props: {
-    card: 'default',
     empty: Boolean,
     title: {
       type: String,
@@ -61,17 +59,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@mixin tablets() {
-  @media screen and (max-width: $bp-tablets) {
-    @content;
-  }
-}
-
-@mixin phones() {
-  @media screen and (max-width: $bp-phones) {
-    @content;
-  }
-}
 
   .title {
     color: #414C63;
@@ -81,13 +68,5 @@ export default {
     padding-top: 70px;
     margin-top: auto;
     padding-left: 25%;
-
-    @include tablets {
-      padding-left: 0;
-    }
-
-    @include phones {
-      padding-top: 30px;
-    }
   }
 </style>

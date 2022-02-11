@@ -1,42 +1,43 @@
 extends ./main.layout.pug
-block popup
-  .hamburger.hidden
-    .container.hamburger__container
-      .hamburger__col
-        a.logo(href='#') ЮА
-      .popup
-        button.popup__btn 
-          +icon('cross', 'popup__btn-img', alt='close')
 
-        nav.popup__menu.menu
-          ul.menu__list
-            li.menu__item
-              a.menu__link(href='#') Главная
-            li.menu__item
-              a.menu__link(href='#') Обо мне
-            li.menu__item
-              a.menu__link(href='#') Навыки
-            li.menu__item
-              a.menu__link(href='#') Работы
-            li.menu__item
-              a.menu__link(href='#') Отзывы
-
-        .header__socials.socials.socials--theme--dark
-          ul.socials__list
-            li.socials__item
-              a.socials__link(href='#')
-                +icon('insta', 'socials__img', alt='instagram')
-            li.socials__item
-              a.socials__link(href='#')
-                +icon('vk', 'socials__img', alt='vkontakte')
-            li.socials__item
-              a.socials__link(href='#')
-                +icon('github', 'socials__img', alt='github')
-            li.socials__item
-              a.socials__link(href='#')
-                +icon('envelope', 'socials__img', alt='mail')
 block content
   .welcome
+
+    .hamburger.hidden
+      .container.hamburger__container
+        .hamburger__col
+          a.logo(href='#') ЮА
+        .popup
+          button.popup__btn 
+            +icon('cross', 'popup__btn-img', alt='close')
+
+          nav.popup__menu.menu
+            ul.menu__list
+              li.menu__item
+                a.menu__link(href='#') Главная
+              li.menu__item
+                a.menu__link(href='#') Обо мне
+              li.menu__item
+                a.menu__link(href='#') Навыки
+              li.menu__item
+                a.menu__link(href='#') Работы
+              li.menu__item
+                a.menu__link(href='#') Отзывы
+
+          .header__socials.socials.socials--theme--dark
+            ul.socials__list
+              li.socials__item
+                a.socials__link(href='#')
+                  +icon('insta', 'socials__img', alt='instagram')
+              li.socials__item
+                a.socials__link(href='#')
+                  +icon('vk', 'socials__img', alt='vkontakte')
+              li.socials__item
+                a.socials__link(href='#')
+                  +icon('github', 'socials__img', alt='github')
+              li.socials__item
+                a.socials__link(href='#')
+                  +icon('envelope', 'socials__img', alt='mail')
 
     section.hero
       .container.hero__container
@@ -67,7 +68,7 @@ block content
                 a.socials__link(href='#')
                 +icon('envelope', 'socials__img', alt='mail')
 
-          a.burger(href="#" id="burger")
+          a.burger(href="#")
             span.burger__line
             span.burger__line
             span.burger__line

@@ -1,40 +1,37 @@
 <template lang="pug">
   .card-work
     .card-work__preview
-      img(:src="cover").card-work__img
-      .tags 
-        tags-list(:tags="project.techs").card-work__tags
+      img(:src="project.img").card-work__img
+      tags.card-work__tags 
+        ul.tags__list
+          li.tags__item(v-for="tag in tags") {{tags}}
     .card-work__desc
       h4.card-work__title {{project.title}}
-      p.card-work__text {{project.description}}
+      p.card-work__text {{project.desc}}
       a(:href="project.link").card-work__link {{project.link}}
       .card-work__btns
-        icon(symbol="pencil" title="Править" @click="$emit('open-project', project)")  
-        icon(symbol="cross" title="Удалить" @click="$emit('remove-project', $event)")
+        button Править 
+        button Удалить
+
 </template>
 
 <script>
 
-import icon from "../icon";
-import tagsList from "../tagsList";
-import { mapActions } from 'vuex';
+// import tag from './components/tag';
 
 export default {
-  components: {
-    icon,
-    tagsList
-  },
+  // components: {
+  //   tag
+  // },
   props: {
     project: {
-      type: Object,
-      default: () => {},
-    },
+      type: Object
+    }
   },
   computed: {
-    cover() {
-      return `https://webdev-api.loftschool.com/${this.project.photo}`
-    },
-
+    tag() {
+      return this.project.skills.split(', ')
+    }
   }
 }
 </script>

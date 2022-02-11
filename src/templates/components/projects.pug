@@ -1,5 +1,5 @@
 script(type="text/x-template")#projects-container
-  .projects__wrapper(v-if="isDownloaded")
+  .projects__wrapper
     display(
       :currentProject='currentProject',
       :projects='projects',
@@ -9,13 +9,12 @@ script(type="text/x-template")#projects-container
     description(
       :currentProject='currentProject'
     )
-  div(v-else) Loading
 
 script(type="text/x-template")#projects-display
   .projects__slider.slider
     ul.slider__preview(:data-slide="currentNumber + 1")
       li.slider__preview-item
-        img(:src="currentProject.photo", alt="work preview").slider__preview-img
+        img(:src="currentProject.img", alt="work preview").slider__preview-img
         previews(
           :projects='limitSliderLength',
           :currentProject='currentProject'
@@ -27,11 +26,11 @@ script(type="text/x-template")#projects-display
 script(type="text/x-template")#projects-previews
   ul.slider__all
     li.slider__all-item(
-      v-for='project in projects' :key='project.id'
-      :class='{active: currentProject.id === project.id}'
+      v-for='slide in projects' :key='slide.id'
+      :class='{active: currentProject.id === slide.id}'
     )
       button.slider__all-link(href='#')
-        img(:src="project.photo", alt="work preview").slider__all-img
+        img(:src="slide.img", alt="work preview").slider__all-img
         
 
 script(type="text/x-template")#projects-btns
@@ -47,13 +46,12 @@ script(type="text/x-template")#projects-btns
 
 script(type="text/x-template")#projects-content
   .projects__content
-    tags( 
+    tags(
       :tags="tagsAll"
-      
     )
     h3.projects__school {{currentProject.title}}
     .projects__text
-      p {{currentProject.description}}
+      p {{currentProject.desc}}
     a.projects__link(:href="currentProject.link" target="_blank")
       +icon('link', 'projects__link-img', alt='link icon') 
       span.projects__link-text Посмотреть сайт

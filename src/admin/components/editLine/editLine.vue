@@ -1,10 +1,10 @@
 <template>
   <div class="edit-line-component" :class="{'blocked' : blocked}">
     <div class="title" v-if="editMode === false">
-      <div class="text">{{ value }}</div>
+      <div class="text">{{value}}</div>
       <div class="icon">
         <icon symbol="pencil" grayscale @click="editMode = true"></icon>
-        <icon symbol='trash' class="edit-line__btn" @click="$emit('remove', $event)" grayscale />
+        <icon symbol='trash' class="btn" @click="$emit('remove', $event)" grayscale />
       </div>
     </div>
     <div class="title" v-else>
@@ -22,10 +22,10 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', category.editMode = false)"></icon>
+          <icon symbol="tick" @enter="onApprove" @click="$emit('edit-category', editMode = false)"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="editMode = false"></icon>
+          <icon symbol="cross" @click="category.editMode = false"></icon>
         </div>
       </div>
     </div>
@@ -62,6 +62,7 @@ export default {
       title: this.value,
       category: { 
         title: '',
+        // editMode: false
        },
     }
   },

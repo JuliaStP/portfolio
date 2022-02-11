@@ -49,8 +49,7 @@ export default {
   }),
   methods: {
     ...mapActions({
-      showTooltip: 'tooltips/show',
-      login: 'user/login'
+      showTooltip: 'tooltips/show'
     }),
 
     async handleSubmit() {
@@ -58,13 +57,10 @@ export default {
       this.isLoginBtnDisabled = true;
 
       try {
-        const response = await $axios.post('/login', this.user);
+        const response = await $axios.post('/refreshToken', this.user);
         const token = response.data.token;
         localStorage.setItem("token", token)
         $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-        const userResonse = await $axios.get('/user');
-        this.login(userResonse.data.user);
         this.$router.replace('/');
       } catch (error) {
         this.showTooltip({

@@ -4,10 +4,9 @@
       <ul class="list">
         <li  
           v-for="link in links" 
-          class='item'
+          :class="['item', {active: link.active}]"
           :key="link.id">
-          <router-link active-class="active" exact :to="`/${link.alias}`" class="link">
-            {{link.title}}</router-link>
+          <a :href="`/${link.alias}`" class="link">{{link.title}}</a>
         </li>
       </ul>
     </div> 
@@ -19,13 +18,13 @@ const links = [
   {
     id: 0,
     title: "Обо мне",
-    alias: "",
+    alias: "about",
     active: true
   },
   {
     id: 1,
     title: "Работы",
-    alias: "projects",
+    alias: "works",
     active: false
   },
   {

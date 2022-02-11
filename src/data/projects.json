@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Сайт школы образования",
-    "techs": "HTML, CSS, Javascript",
+    "skills": "HTML, CSS, Javascript",
     "img": "slider-1.jpg",
     "link": "http://loftschool.com",
     "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "title": "Проект CHOCCO",
-    "techs": "HTML, CSS, Javascript",
+    "skills": "HTML, CSS, Javascript",
     "img": "slider-2.jpg",
     "link": "http://juliastp.github.io/chocco/dist",
     "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "title": "Сайт тур агенства Air-Asia",
-    "techs": "HTML, CSS",
+    "skills": "HTML, CSS",
     "img": "slider-3.jpg",
     "link": "http://juliastp.github.io/air-asia",
     "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Сайт банка Lion-Bank",
-    "techs": "HTML, CSS",
+    "skills": "HTML, CSS",
     "img": "slider-4.jpg",
     "link": "http://loftschool.com",
     "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "title": "Trial",
-    "techs": "HTML, CSS",
+    "skills": "HTML, CSS",
     "img": "slider-5.jpg",
     "link": "http://loftschool.com",
     "desc": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"

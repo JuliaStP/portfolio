@@ -3,8 +3,8 @@
     <div class="title">{{skill.title}}</div>
     <div class="percent">{{skill.percent}}  %</div>
     <div class="buttons">
-      <icon symbol='pencil' class="about-btn" @click="currentSkill.editMode = true" grayscale />
-      <icon symbol='trash' class="about-btn" @click="$emit('remove', currentSkill)" grayscale />
+      <icon symbol='pencil' class="btn" @click="currentSkill.editMode = true" grayscale />
+      <icon symbol='trash' class="btn" @click="$emit('remove', currentSkill)" grayscale />
     </div>
   </div>
 
@@ -19,7 +19,6 @@
       min="0"
       max="100"
       maxlength="3" 
-      noSidePaddings
      />
     </div>
     <div class="buttons">
