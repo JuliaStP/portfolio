@@ -1,6 +1,6 @@
-# Учебный проекта Portfolio
+# Portfolio
 
-## Юлия Андреева - курс (03.08.20 - 10.09.20)
+## Julia Andreeva - course dates (03.08.20 - 10.09.20)
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
 [последняя версия Yarn](https://yarnpkg.com/ru/docs/install)
