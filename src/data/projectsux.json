@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "title": "WebSchool",
+      "skills": "Figma, UX Research",
+      "img": "slider-10.jpg",
+      "link": "https://docs.google.com/presentation/d/1PIwMrb6htsgPi_eyPYM28bVItdzcOSIVOMGX6fJ0sh0/edit?usp=sharing",
+      "desc": "Responsive UX design - desktop and mobile for social project - web courses for teenagers."
+    },
+    {
+      "id": 2,
+      "title": "JGarden",
+      "skills": "Figma, UX Research",
+      "img": "slider-20.jpg",
+      "link": "https://docs.google.com/presentation/d/16nzBLojAnd4cff6bThA5ZuzwEsUsNwYi6uATz_mBKL0/edit?usp=sharing",
+      "desc": "Very first UX project - flower purchasing app. UX research, paper and digital wireframes, mockups, low-fidelity and high-fidelity prototypes are used."
+    },
+    {
+      "id": 3,
+      "title": "Le Miel Bakery",
+      "skills": "Adobe XD, UX Research",
+      "img": "slider-30.jpg",
+      "link": "https://docs.google.com/presentation/d/1etCdbVdEdWDppDxff5RAQXnmGq48XhGJeK9wZ8YKuTw/edit?usp=sharing",
+      "desc": "Responsive Bakery site for both mobile and desktop. Was created using Adobe XD."
+    }
+  ]

@@ -2,10 +2,38 @@
     position: relative;
 }
 
+.projectsux {
+    background: url('~images/content/bg-bottom.png') top center / cover no-repeat;
+}
+
+.projectsux .projects__school {
+    color: #ffffff;
+}
+
+.projectsux .projects__text {
+    color: #ffffff;
+}
+
 .projects__title {
     padding-top: 200px;
     font-size: 36px;
     color: #333c49;
+    font-weight: 700;
+    margin-bottom: 82px;
+
+    @include tablets {
+        margin-bottom: 50px;
+    }
+
+    @include phones {
+        text-align: center;
+    }
+}
+
+.projectsux__title {
+    padding-top: 200px;
+    font-size: 36px;
+    color: #fff;
     font-weight: 700;
     margin-bottom: 82px;
 

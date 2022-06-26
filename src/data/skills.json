@@ -5,30 +5,24 @@
     "skills": [
       {
         "id": 1,
-        "skill": "HTML5",
-        "percentage": 80
+        "skill": "HTML5 & CSS3",
+        "percentage": 100
       },
       {
         "id": 2,
-        "skill": "CSS3",
-        "percentage": 70
+        "skill": "Javascript",
+        "percentage": 35
       },
       {
         "id": 3,
-        "skill": "Javascript",
-        "percentage": 30
+        "skill": "React.js",
+        "percentage": 15
       },
       {
         "id": 4,
-        "skill": "Jquery и Vue.js",
-        "percentage": 15
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "category": "Workflow",
-    "skills": [
+        "skill": "Jquery & Vue.js",
+        "percentage": 20
+      },
       {
         "id": 5,
         "skill": "GIT",
@@ -36,8 +30,8 @@
       },
       {
         "id": 6,
-        "skill": "Terminal",
-        "percentage": 45
+        "skill": "PHP",
+        "percentage": 30
       },
       {
         "id": 7,
@@ -48,6 +42,42 @@
         "id": 8,
         "skill": "Webpack",
         "percentage": 48
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "UX",
+    "skills": [
+      {
+        "id": 5,
+        "skill": "Figma",
+        "percentage": 80
+      },
+      {
+        "id": 6,
+        "skill": "Adobe XD",
+        "percentage": 70
+      },
+      {
+        "id": 7,
+        "skill": "Adobe Photoshop",
+        "percentage": 50
+      },
+      {
+        "id": 8,
+        "skill": "Paper & Digital Wireframes",
+        "percentage": 90
+      },
+      {
+        "id": 9,
+        "skill": "Mockups",
+        "percentage": 85
+      },
+      {
+        "id": 10,
+        "skill": "Prototyping",
+        "percentage": 90
       }
     ]
   }
